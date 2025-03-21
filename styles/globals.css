@@ -5,6 +5,14 @@
   --foreground: #000000;
 }
 
+@theme inline {
+  --font-pretendard: var(--font-pretendard);
+  --font-clash: var(--font-clash);
+  --font-arita: var(--font-arita);
+  --font-geist_sans: var(--font-geist-sans);
+  --font-geist_mono: var(--font-geist-mono);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #000000;

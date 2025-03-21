@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import { clash, pretendard, arita, geistSans, geistMono } from "@/lib/fonts";
 
 export const metadata: Metadata = {
   title: "My Next.js App",
@@ -12,7 +13,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html
+      lang="ko"
+      className={`${clash.variable} ${pretendard.variable} ${arita.variable} ${geistSans.variable} ${geistMono.variable}`}
+    >
       <body>{children}</body>
     </html>
   );
