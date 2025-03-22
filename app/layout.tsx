@@ -1,11 +1,19 @@
 import type { Metadata } from "next";
-import "../styles/globals.css";
-import { clash, pretendard, arita, geistSans, geistMono } from "@/lib/fonts";
-import Layout from "@/components/layout/Layout";
+import "@/styles/globals.css";
+import {
+  clash,
+  pretendard,
+  arita,
+  geistSans,
+  geistMono,
+  yoonwoo,
+  wish,
+  jaram,
+} from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "My Next.js Application",
+  title: "Hyeinisfree",
+  description: "Hi Kim's Portfolio",
 };
 
 export default function RootLayout({
@@ -16,11 +24,9 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${clash.variable} ${pretendard.variable} ${arita.variable} ${geistSans.variable} ${geistMono.variable}`}
+      className={`${clash.variable} ${pretendard.variable} ${arita.variable} ${yoonwoo.variable} ${wish.variable} ${jaram.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body>
-        <Layout>{children}</Layout>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

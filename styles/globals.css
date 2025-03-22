@@ -9,8 +9,15 @@
   --font-pretendard: var(--font-pretendard);
   --font-clash: var(--font-clash);
   --font-arita: var(--font-arita);
+  --font-yoonwoo: var(--font-yoonwoo);
+  --font-wish: var(--font-wish);
+  --font-jaram: var(--font-jaram);
   --font-geist_sans: var(--font-geist-sans);
   --font-geist_mono: var(--font-geist-mono);
+}
+
+@theme {
+  --breakpoint-xl: 90rem;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,4 +30,14 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+main {
+  z-index: 10;
+  background-color: white;
+}
+
+section {
+  min-height: calc(100vh - (var(--spacing) * 18));
+  /* background-color: white; */
 }
