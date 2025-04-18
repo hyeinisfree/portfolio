@@ -54,3 +54,21 @@ export const arita = localFont({
   display: "swap",
   variable: "--font-arita",
 });
+
+export const yoonwoo = localFont({
+  src: "../public/fonts/yoonwoo/yoonwoo.ttf",
+  display: "swap",
+  variable: "--font-yoonwoo",
+});
+
+export const wish = localFont({
+  src: "../public/fonts/wish/wish.ttf",
+  display: "swap",
+  variable: "--font-wish",
+});
+
+export const jaram = localFont({
+  src: "../public/fonts/jaram/jaram.ttf",
+  display: "swap",
+  variable: "--font-jaram",
+});

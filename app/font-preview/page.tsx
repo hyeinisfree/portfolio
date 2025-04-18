@@ -39,6 +39,21 @@ const FontPreview = () => {
       weightOptions: [100, 300, 500, 600, 700],
     },
     {
+      name: "YoonWoo (font-yoonwoo)",
+      className: "font-yoonwoo",
+      variable: false,
+    },
+    {
+      name: "WishList (font-wish)",
+      className: "font-wish",
+      variable: false,
+    },
+    {
+      name: "IncheonJaram (font-jaram)",
+      className: "font-jaram",
+      variable: false,
+    },
+    {
       name: "Geist Sans (font-geist_sans)",
       className: "font-geist_sans",
       variable: true,
@@ -61,7 +76,7 @@ const FontPreview = () => {
       </div>
 
       {fontItems.map((font) => (
-        <section
+        <div
           key={font.name}
           className="border border-neutral-300 p-6 rounded-xl shadow-sm"
         >
@@ -136,7 +151,7 @@ const FontPreview = () => {
           >
             {sampleText.code}
           </pre>
-        </section>
+        </div>
       ))}
     </main>
   );

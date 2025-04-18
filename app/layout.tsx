@@ -1,7 +1,16 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import { clash, pretendard, arita, geistSans, geistMono } from "@/lib/fonts";
-import Layout from "@/components/layout/Layout";
+import {
+  clash,
+  pretendard,
+  arita,
+  geistSans,
+  geistMono,
+  yoonwoo,
+  wish,
+  jaram,
+} from "@/lib/fonts";
+import HomeLayout from "@/components/layout/HomeLayout";
 
 export const metadata: Metadata = {
   title: "My Next.js App",
@@ -16,10 +25,10 @@ export default function RootLayout({
   return (
     <html
       lang="ko"
-      className={`${clash.variable} ${pretendard.variable} ${arita.variable} ${geistSans.variable} ${geistMono.variable}`}
+      className={`${clash.variable} ${pretendard.variable} ${arita.variable} ${yoonwoo.variable} ${wish.variable} ${jaram.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
       <body>
-        <Layout>{children}</Layout>
+        <HomeLayout>{children}</HomeLayout>
       </body>
     </html>
   );

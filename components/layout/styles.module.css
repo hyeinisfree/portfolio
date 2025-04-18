@@ -1,0 +1,36 @@
+.grid_container {
+  .grid_item {
+    border: 1px dashed #e9e9e9;
+  }
+
+  grid-template-columns: repeat(10, 100px);
+  grid-template-rows: repeat(8, 100px);
+}
+
+@media screen and (min-width: 768px) {
+  .grid_container {
+    grid-template-columns: repeat(10, 120px);
+    grid-template-rows: repeat(8, 120px);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .grid_container {
+    grid-template-columns: repeat(10, 150px);
+    grid-template-rows: repeat(8, 150px);
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .grid_container {
+    grid-template-columns: repeat(10, 180px);
+    grid-template-rows: repeat(8, 180px);
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .grid_container {
+    grid-template-columns: repeat(10, 210px);
+    grid-template-rows: repeat(8, 210px);
+  }
+}
