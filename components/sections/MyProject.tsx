@@ -1,9 +1,9 @@
-"use client";
-import { useRef, useState, useEffect } from "react";
-import Image from "next/image";
-import sswu from "@/public/images/sswu.jpg";
-import storeasy from "@/public/images/storeasy.jpg";
-import dingdong from "@/public/images/dingdong.jpg";
+'use client';
+import { useRef, useState, useEffect } from 'react';
+import Image from 'next/image';
+import sswu from '@/public/images/sswu.jpg';
+import storeasy from '@/public/images/storeasy.jpg';
+import dingdong from '@/public/images/dingdong.jpg';
 
 const MyProject = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -19,10 +19,10 @@ const MyProject = () => {
     };
 
     calculateOffset();
-    window.addEventListener("resize", calculateOffset);
+    window.addEventListener('resize', calculateOffset);
 
     return () => {
-      window.removeEventListener("resize", calculateOffset);
+      window.removeEventListener('resize', calculateOffset);
     };
   }, []);
 
@@ -30,12 +30,12 @@ const MyProject = () => {
     <section
       id="my-project"
       ref={sectionRef}
-      className="font-clash bg-sky-100 flex items-center"
+      className="font-clash flex items-center"
     >
       {/* Top full-width divider line */}
       {/* <div className="w-screen relative left-1/2 right-1/2 -mx-[50vw] h-px bg-[#e9e9e9]"></div> */}
 
-      <div className="absolute left-0 w-screen bg-amber-200 overflow-hidden">
+      <div className="absolute left-0 w-screen overflow-hidden">
         <h2
           className="relative text-6xl font-medium mb-16 z-50"
           style={{ left: `${leftOffset}px` }}

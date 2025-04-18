@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -14,6 +14,10 @@
   --font-jaram: var(--font-jaram);
   --font-geist_sans: var(--font-geist-sans);
   --font-geist_mono: var(--font-geist-mono);
+}
+
+@theme {
+  --breakpoint-xl: 90rem;
 }
 
 @media (prefers-color-scheme: dark) {

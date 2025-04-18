@@ -1,16 +1,69 @@
-import React from "react";
+'use client';
+import { useRef, useState, useEffect } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 const CareerExperience = () => {
+  const sectionRef = useRef(null);
+  const containerRef = useRef(null);
+
+  // 스크롤 애니메이션을 위한 설정
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start 30%', 'end end'],
+  });
+
+  // 타임라인 길이를 스크롤 진행도에 따라 변환
+  const timelineHeight = useTransform(scrollYProgress, [0, 1], ['0%', '100%']);
+  const maskHeight = useTransform(scrollYProgress, [0, 1], ['140%', '0%']);
+  const scrollOpacity = useTransform(scrollYProgress, [0, 0.2, 1], [0, 0.7, 1]);
+
   return (
     <section
+      ref={sectionRef}
       id="my-career-experience"
-      className="flex flex-col justify-center bg-purple-100 font-clash"
+      className="flex flex-col justify-center font-clash"
     >
       <h2 className="text-6xl font-medium mb-18">My Career & Experience</h2>
-      <div className="career-contanierst relative">
-        <div className="career-timeline absolute inset-x-0 mx-auto h-full w-1 bg-gradient-to-b from-white to-purple-300 "></div>
-        <div className="career-timeline-dot absolute bottom-0 inset-x-0 mx-auto h-3 w-3 bg-purple-400 rounded-full"></div>
-        <div className="career-item grid grid-cols-7 grid-rows-2 gap-x-8 gap-y-12 py-12">
+      <div ref={containerRef} className="career-contanier relative">
+        <motion.div
+          className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-purple-300 z-20"
+          style={{
+            height: timelineHeight,
+            position: 'absolute',
+            top: 0,
+          }}
+        ></motion.div>
+        <motion.div
+          className="career-timeline absolute inset-x-0 mx-auto w-3 h-3 bg-gradient-to-b bg-purple-400 rounded-full z-20"
+          style={{
+            top: timelineHeight,
+            opacity: scrollOpacity,
+          }}
+        ></motion.div>
+        <motion.div
+          className="career-mask absolute inset-x-0 mx-auto z-10 "
+          style={{
+            height: maskHeight,
+            width: '100%',
+            position: 'absolute',
+            bottom: 0,
+          }}
+        >
+          <div
+            className="absolute inset-x-0 top-0 h-32 w-full"
+            style={{
+              backdropFilter: 'blur(8px)',
+              WebkitBackdropFilter: 'blur(8px)',
+              background:
+                'linear-gradient(to bottom, rgba(255, 255, 255, 0.7), white)',
+              maskImage: 'linear-gradient(to bottom, transparent, white 80%)',
+              WebkitMaskImage:
+                'linear-gradient(to bottom, transparent, white 80%)',
+            }}
+          ></div>
+          <div className="absolute inset-x-0 top-32 bottom-0 w-full bg-white"></div>
+        </motion.div>
+        <div className="career-item grid grid-cols-7 grid-rows-2 gap-x-8 gap-y-12 py-6">
           <div className="career-role col-span-2 flex flex-col gap-1.5 shrink-0">
             <h4 className="text-3xl font-medium">컴퓨터공학과</h4>
             <h5 className="text-xl">성신여자대학교</h5>

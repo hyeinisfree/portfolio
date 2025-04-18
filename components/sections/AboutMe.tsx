@@ -1,11 +1,12 @@
-"use client";
-import { useRef, useEffect, useState, useLayoutEffect } from "react";
-import Image from "next/image";
-import profile from "@/public/images/hyein.jpg";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { motion } from "framer-motion";
+'use client';
+import { useRef, useEffect, useState, useLayoutEffect } from 'react';
+import Image from 'next/image';
+import profile from '@/public/images/hyein.jpg';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { motion } from 'framer-motion';
+import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,10 +20,10 @@ const AboutMe = () => {
         setImageHeight(imgRef.current.offsetHeight);
       }
     };
-    window.addEventListener("resize", updateImageHeight);
+    window.addEventListener('resize', updateImageHeight);
     updateImageHeight();
 
-    return () => window.removeEventListener("resize", updateImageHeight);
+    return () => window.removeEventListener('resize', updateImageHeight);
   }, []);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -37,7 +38,7 @@ const AboutMe = () => {
     if (!section || !inner) return;
 
     const headerHeight =
-      document.querySelector("header")?.getBoundingClientRect().height || 0;
+      document.querySelector('header')?.getBoundingClientRect().height || 0;
 
     // 내부 스크롤 길이 계산
     const scrollableDistance = inner.scrollHeight - inner.clientHeight;
@@ -51,7 +52,7 @@ const AboutMe = () => {
       pinSpacing: true,
       invalidateOnRefresh: true,
       scrub: true,
-      markers: true, // true로 디버깅해보세요
+      // markers: true, // true로 디버깅해보세요
       onUpdate: (self) => {
         const scrollAmount = self.progress * inner.scrollHeight;
         inner.scrollTop = scrollAmount;
@@ -68,17 +69,24 @@ const AboutMe = () => {
       id="about-me"
       className="flex justify-center items-center font-clash"
     >
-      <div className="flex gap-8 items-stretch">
-        <div className="image-container w-1/4 shrink-0">
+      <motion.div
+        className="flex gap-12 items-stretch"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0 }}
+        viewport={{ once: false, amount: 0.3 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+      >
+        <motion.div className="image-container w-1/4 shrink-0">
           <Image ref={imgRef} src={profile} alt="profile" width={360}></Image>
-        </div>
+        </motion.div>
         <div
           ref={innerRef}
           className="inner-scroll-container flex flex-col gap-6 overflow-hidden w-3/4"
           style={{ height: imageHeight ? `${imageHeight}px` : undefined }}
         >
           <div
-            className="inner-item flex flex-col justify-end shrink-0"
+            className="inner-item flex flex-col justify-end shrink-0 sticky top-0"
             style={{ height: imageHeight ? `${imageHeight}px` : undefined }}
           >
             <h2 className="text-4xl font-medium mb-3">About Me</h2>
@@ -100,7 +108,7 @@ const AboutMe = () => {
             </p>
           </div>
           <div
-            className=" bg-white inner-item flex flex-col justify-end shrink-0"
+            className="inner-item flex flex-col justify-end shrink-0 bg-white z-10"
             style={{ height: imageHeight ? `${imageHeight}px` : undefined }}
           >
             <h2 className="text-4xl font-medium mb-3">What I Do</h2>
@@ -125,7 +133,7 @@ const AboutMe = () => {
             style={{ height: imageHeight ? `${imageHeight}px` : undefined }}
           ></div> */}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
