@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 export default function useMouse() {
   const [mouse, setMouse] = useState({ x: 0, y: 0 });
 
-  const mouseMove = (e) => {
+  const mouseMove = (e: MouseEvent) => {
     const { clientX, clientY } = e;
     setMouse({
       x: clientX,
