@@ -58,7 +58,7 @@ const StackBox: React.FC<StackBoxProps> = ({
           isSelected ? "-translate-y-full" : "translate-y-0"
         }`}
       >
-        <Icon className={`w-12 h-12 text-[${color}]`} />
+        <Icon className="w-12 h-12" style={{ color: color }} />
       </div>
       <div
         className={`absolute inset-0 flex items-center justify-center transition-transform duration-300 group-hover:translate-y-0 p-2 ${

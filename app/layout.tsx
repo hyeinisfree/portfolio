@@ -12,8 +12,8 @@ import {
 } from "@/lib/fonts";
 
 export const metadata: Metadata = {
-  title: "My Next.js App",
-  description: "My Next.js Application",
+  title: "Hyeinisfree",
+  description: "Hi Kim's Portfolio",
 };
 
 export default function RootLayout({

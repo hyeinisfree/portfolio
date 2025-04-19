@@ -291,7 +291,7 @@ const LandingPage = () => {
       </AnimatePresence>
 
       <div
-        className={`flex-grow sticky top-0 left-0 h-screen w-screen flex justify-center items-center overflow-hidden pointer-events-none ${
+        className={`flex-grow sticky top-0 left-0 h-screen w-full flex justify-center items-center overflow-hidden pointer-events-none ${
           loading ? "invisible" : "visible"
         }`}
         aria-live="polite"
@@ -307,14 +307,14 @@ const LandingPage = () => {
         )}
 
         <motion.div
-          className="absolute w-screen h-screen z-20 bg-black pointer-events-none"
+          className="absolute w-full h-screen z-20 bg-black pointer-events-none"
           style={{ opacity: scrollYProgress }}
           aria-hidden="true"
         ></motion.div>
 
         {/* 로딩 후 애니메이션을 위한 motion.div */}
         <motion.div
-          className="absolute w-screen h-screen z-30 bg-white pointer-events-none"
+          className="absolute w-full h-screen z-30 bg-white pointer-events-none"
           initial={{ opacity: 1 }}
           animate={{ opacity: showContent ? 0 : 1 }}
           transition={{

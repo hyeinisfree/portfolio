@@ -83,7 +83,7 @@ const CareerExperience: React.FC = () => {
       <div ref={containerRef} className="career-contanier relative">
         <div
           ref={timelineRef}
-          className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-zinc-300 z-20"
+          className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-violet-300 z-20"
           style={{
             height: "0%",
             position: "absolute",
@@ -92,7 +92,7 @@ const CareerExperience: React.FC = () => {
         ></div>
         <div
           ref={timelineDotRef}
-          className="career-timeline absolute inset-x-0 mx-auto w-3 h-3 bg-gradient-to-b bg-zinc-400 rounded-full z-20"
+          className="career-timeline absolute inset-x-0 mx-auto w-3 h-3 bg-gradient-to-b bg-violet-400 rounded-full z-20"
           style={{
             opacity: 0,
           }}

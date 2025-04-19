@@ -2,7 +2,7 @@ const Footer = () => {
   return (
     <footer className="w-full z-50 font-clash bg-white border-t border-gray-100">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full flex flex-col gap-4">
-        <h3 className="text-4xl font-normal text-gray-500">CONTACT</h3>
+        <h3 className="text-4xl font-normal text-gray-500 mb-2">CONTACT</h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="flex flex-col">
             <h4 className="text-md font-normal text-gray-400 tracking-wider">
