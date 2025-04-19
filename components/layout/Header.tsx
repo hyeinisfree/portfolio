@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+// import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 
 const Header = () => {
-  const pathname = usePathname();
+  // const pathname = usePathname();
 
-  const navItems = [
-    { name: "ABOUT", path: "/" },
-    { name: "PROJECT", path: "/projects" },
-    { name: "BLOG", path: "/blog" },
-  ];
+  // const navItems = [
+  //   { name: "ABOUT", path: "/" },
+  //   { name: "PROJECT", path: "/projects" },
+  //   { name: "BLOG", path: "/blog" },
+  // ];
 
   return (
     <motion.header className="sticky top-0 left-0 right-0 z-50 font-clash bg-white flex items-center h-18">
@@ -22,7 +22,7 @@ const Header = () => {
           </Link>
 
           <nav className="flex space-x-8">
-            {navItems.map((item) => (
+            {/* {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
@@ -32,7 +32,35 @@ const Header = () => {
               >
                 {item.name}
               </Link>
-            ))}
+            ))} */}
+            <div className="text-md">
+              <a
+                href="mailto:hyeinsfree.dev@gmail.come"
+                className="text-gray-500 hover:text-gray-900"
+              >
+                CONTACT
+              </a>
+            </div>
+            <div className="text-md">
+              <a
+                href="https://github.com/hyeinisfree"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900"
+              >
+                GITHUB
+              </a>
+            </div>
+            <div className="text-md">
+              <a
+                href="https://hyeinisfree.tistory.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900"
+              >
+                BLOG
+              </a>
+            </div>
           </nav>
         </div>
       </div>
