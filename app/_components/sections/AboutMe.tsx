@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useState, useLayoutEffect } from "react";
+import { useRef, useState, useLayoutEffect, ReactNode } from "react";
 import Image from "next/image";
 import profile from "@/public/images/hyein.jpg";
 import gsap from "gsap";
@@ -10,7 +10,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 interface InnerItemProps {
   title: string;
-  content: string;
+  content: ReactNode;
   height?: number;
   isActive: boolean;
 }
@@ -38,7 +38,7 @@ const InnerItem = ({ title, content, height, isActive }: InnerItemProps) => (
     }}
   >
     <motion.h2
-      className="text-4xl font-medium mb-3"
+      className="text-4xl font-medium mb-4"
       initial={{ opacity: 0, y: 10 }}
       animate={{
         opacity: isActive ? 1 : 0,
@@ -52,7 +52,7 @@ const InnerItem = ({ title, content, height, isActive }: InnerItemProps) => (
     >
       {title}
     </motion.h2>
-    <motion.p
+    <motion.div
       className="font-arita text-xl"
       initial={{ opacity: 0, y: 10 }}
       animate={{
@@ -66,7 +66,7 @@ const InnerItem = ({ title, content, height, isActive }: InnerItemProps) => (
       }}
     >
       {content}
-    </motion.p>
+    </motion.div>
   </motion.div>
 );
 
@@ -100,19 +100,19 @@ const AboutMe = () => {
     const inner = innerRef.current;
     if (!section || !inner) return;
 
-    const scrollableDistance = inner.scrollHeight - inner.clientHeight;
+    // const scrollableDistance = inner.scrollHeight - inner.clientHeight;
     inner.style.height = `${imageHeight}px`;
-    section.style.marginBottom = `${scrollableDistance}px`;
+    section.style.marginBottom = `${inner.scrollHeight}px`;
 
     const pinTrigger = ScrollTrigger.create({
       trigger: section,
       start: "top top+=72px",
-      end: () => `+=${scrollableDistance}`,
+      end: () => `+=${inner.scrollHeight}`,
       pin: true,
       invalidateOnRefresh: true,
       scrub: 0.5,
       onUpdate: (self) => {
-        const scrollAmount = self.progress * scrollableDistance;
+        const scrollAmount = self.progress * inner.scrollHeight;
         inner.scrollTop = scrollAmount;
 
         if (self.progress > 0.5) {
@@ -173,13 +173,66 @@ const AboutMe = () => {
         >
           <InnerItem
             title="About Me"
-            content="안녕하세요, 기초부터 탄탄하게 시스템의 본질을 꿰뚫는 개발자 김혜인입니다. Ruby on Rails와 Spring Boot로 백엔드에서부터 출발해, 네트워크와 Linux, Docker와 AWS를 아우르는 인프라 영역까지 폭넓게 확장해가고 있습니다. 프론트엔드 역시 Next.js와 Tailwind CSS로 인터랙티브한 경험을 구축하며, 풀사이클 개발자로 성장하기 위해 노력하고 있습니다. 기술의 깊이를 중요하게 생각하는 저는, 기초적인 컴퓨터 사이언스 지식을 꾸준히 탐구하며 탄탄한 기반 위에 전문성을 쌓아가고 있습니다. 단순히 코드를 작성하는 것이 아니라, 제품과 사람을 연결하는 따뜻한 시스템과 인프라를 만드는 개발자를 꿈꿉니다. 항상 질문을 통해 더 좋은 방법을 찾고, 협업 과정에서의 친절함과 책임감을 가장 중요하게 생각합니다. 제가 작성한 한 줄의 코드가 사람들에게 닿아 더 나은 일상을 만드는 것, 그것이 제가 개발자로서 추구하는 진정한 목표입니다."
+            content={
+              <div className="space-y-4">
+                <p>
+                  안녕하세요, 기본을 탄탄하게 다지며 성장하는 백엔드 개발자
+                  김혜인입니다.
+                </p>
+                <p>
+                  지난 2년간 Ruby on Rails 기반의 서비스 회사에서 백엔드 개발을
+                  담당하며, 안정적이고 확장 가능한 서비스 구축을 위해
+                  노력해왔습니다. 단순히 기능을 구현하는 것을 넘어 제품에 대한
+                  이해를 바탕으로 더 나은 방향을 제시하는 개발자가 되고자
+                  합니다.
+                </p>
+                <p>
+                  백엔드 개발자로서 더 좋은 서비스를 만들기 위해 네트워크,
+                  리눅스와 같은 시스템 및 인프라 기술을 꾸준히 학습하고 있으며,
+                  프론트엔드 영역에도 관심을 가져 React와 Next.js 기반의
+                  프로젝트를 진행하고 있습니다. 이러한 기술적 확장을 통해 서비스
+                  전체 구조를 이해하고 팀과 더 원활하게 소통하는 개발자가 되고자
+                  합니다.
+                </p>
+                <p>
+                  항상 질문을 통해 더 좋은 방법을 찾고, 협업 과정에서의 친절함과
+                  책임감을 가장 중요하게 생각합니다. 단순히 코드를 작성하는 것이
+                  아니라, 제품과 사람을 연결하는 따뜻한 서비스를 만드는 개발자를
+                  꿈꿉니다.
+                </p>
+              </div>
+            }
             height={imageHeight}
             isActive={activeItem === 0}
           />
           <InnerItem
             title="What I Do"
-            content="안녕하세요, 사람과 기술을 연결하는 따뜻한 개발자 김혜인입니다. Ruby on Rails와 Spring Boot를 기반으로 한 백엔드 개발에서 출발하여, 네트워크, Linux, Docker, AWS와 같은 인프라 기술까지 폭넓게 경험하고 있습니다. 프론트엔드 분야에서도 Next.js와 Tailwind CSS를 활용해 사용자와의 상호작용을 고민하며 풀사이클 개발 역량을 키워가고 있습니다. 저는 기술의 깊이와 함께 기초부터 견고히 다져나가는 학습을 중요하게 생각하며, 컴퓨터 사이언스의 본질을 이해하고자 꾸준히 공부하고 있습니다. 단순히 동작하는 시스템을 만드는 것을 넘어, 사람의 마음을 움직이는 제품과 인프라를 만드는 개발자를 꿈꾸고 있습니다. 언제나 질문을 통해 더 좋은 방법을 찾아가며, 협업 과정에서의 책임감과 친절함을 가장 소중히 생각합니다. 제가 만드는 모든 시스템과 코드가 사람들에게 의미 있게 다가갈 수 있도록 최선을 다하고 있습니다."
+            content={
+              <div className="space-y-4">
+                <p>
+                  저는 Java / Spring Boot와 Ruby on Rails 기반의 웹
+                  애플리케이션을 개발하고 있습니다. 실무에서 RESTful API 설계 및
+                  구현, MySQL을 통한 데이터베이스 관리, Redis를 활용한 성능
+                  최적화, ElasticSearch를 활용한 검색 기능 구축 등의 다양한
+                  경험을 쌓았습니다. 또한 SendGrid와 Braze를 활용한 CRM 개선을
+                  진행하여 사용자와의 효과적인 커뮤니케이션을 지원한 경험이
+                  있습니다.
+                </p>
+                <p>
+                  비즈니스의 요구사항을 신속하고 정확하게 반영하기 위해 CI/CD
+                  환경을 구축하고 자동화하는 경험도 다수 보유하고 있습니다.
+                  Jenkins와 Docker를 이용한 빌드 및 배포 환경 구축, Github
+                  Actions와 AWS 인프라를 연계한 효율적인 배포 파이프라인을
+                  구축했습니다.
+                </p>
+                <p>
+                  적극적인 소통을 중요하게 생각하며, 개발팀뿐 아니라 기획,
+                  디자인 등 다양한 직군과 협업하는 데 익숙합니다. 특히, 서비스의
+                  본질과 비즈니스 요구를 정확히 이해하고 기술적으로 최선의
+                  해결책을 제시하는 능력을 키우고자 늘 노력하고 있습니다.
+                </p>
+              </div>
+            }
             height={imageHeight}
             isActive={activeItem === 1}
           />

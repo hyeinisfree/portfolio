@@ -3,7 +3,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import LandingPage from "@/app/_components/layout/LandingPage";
 import AboutMe from "@/app/_components/sections/AboutMe";
-import MyCareer from "@/app/_components/sections/MyCareer";
+import MyJourney from "@/app/_components/sections/MyJourney";
 import MyProject from "@/app/_components/sections/MyProject";
 import TechStack from "@/app/_components/sections/TechStack";
 import { useEffect } from "react";
@@ -49,12 +49,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <LandingPage />
+      <div className="cursor-none h-screen">
+        <LandingPage />
+      </div>
       <Header />
       <main className="flex-grow">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
           <AboutMe />
-          <MyCareer />
+          <MyJourney />
           <MyProject />
           <TechStack />
         </div>

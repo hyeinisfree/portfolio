@@ -1,12 +1,7 @@
 "use client";
 
 import styles from "./styles.module.css";
-import {
-  motion,
-  useScroll,
-  AnimatePresence,
-  useReducedMotion,
-} from "framer-motion";
+import { motion, useScroll, useReducedMotion } from "framer-motion";
 import { useState, useEffect, useCallback, useMemo, memo } from "react";
 import useMouse from "@/hooks/useMouse";
 import eea from "@/public/images/eea.webp";
@@ -26,45 +21,13 @@ import singstreet from "@/public/images/singstreet.webp";
 import frr from "@/public/images/frr.webp";
 import GridItem from "./GridItem";
 import CustomCursor from "./CustomCursor";
-import LoadingIndicator from "./LoadingIndicator";
 import type { ContentItem } from "./GridItem";
-
-// 이미지 로딩 관리를 위한 커스텀 훅
-const useImageLoader = (totalImages: number) => {
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const [showContent, setShowContent] = useState(false);
-
-  const handleImageLoad = useCallback(() => {
-    setImagesLoaded((prev) => {
-      const newCount = prev + 1;
-      return newCount;
-    });
-  }, []);
-
-  // 모든 이미지 로드 완료 시 처리
-  useEffect(() => {
-    if (imagesLoaded === totalImages && totalImages > 0) {
-      setTimeout(() => {
-        setLoading(false);
-        setTimeout(() => {
-          setShowContent(true);
-        }, 100);
-      }, 300);
-    }
-  }, [imagesLoaded, totalImages]);
-
-  return { loading, imagesLoaded, showContent, handleImageLoad };
-};
 
 // 메모이제이션된 그리드 아이템
 const MemoizedGridItem = memo(GridItem);
 
 // 메모이제이션된 커스텀 커서
 const MemoizedCursor = memo(CustomCursor);
-
-// 메모이제이션된 로딩 인디케이터
-const MemoizedLoadingIndicator = memo(LoadingIndicator);
 
 const LandingPage = () => {
   const [cursorText, setCursorText] = useState("내가 사랑하는");
@@ -201,7 +164,7 @@ const LandingPage = () => {
       },
     ],
     []
-  ); // 빈 의존성 배열 - 결코 변경되지 않음
+  );
 
   // Create a map of content items by index for O(1) lookup
   const contentItemMap = useMemo(() => {
@@ -215,8 +178,6 @@ const LandingPage = () => {
   // 클라이언트 사이드에서만 사용할 수 있도록 수정
   const { x, y } = useMouse();
   const { scrollYProgress } = useScroll();
-  const { loading, imagesLoaded, showContent, handleImageLoad } =
-    useImageLoader(contentItems.length);
 
   // 마우스 움직임에 따른 효과 계산
   const offsetX = (x - centerX) / (centerX || 1);
@@ -266,109 +227,74 @@ const LandingPage = () => {
           contentItem={contentItem}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onImageLoad={handleImageLoad}
         />
       );
     });
-  }, [
-    totalItems,
-    contentItemMap,
-    handleMouseEnter,
-    handleMouseLeave,
-    handleImageLoad,
-  ]);
-
-  // 로딩 진행률 계산 (NaN 방지)
-  const loadingPercentage =
-    contentItems.length > 0
-      ? Math.round((imagesLoaded / contentItems.length) * 100)
-      : 0;
+  }, [totalItems, contentItemMap, handleMouseEnter, handleMouseLeave]);
 
   return (
-    <>
-      <AnimatePresence>
-        {loading && <MemoizedLoadingIndicator percentage={loadingPercentage} />}
-      </AnimatePresence>
+    <div
+      className="flex-grow fixed top-0 left-0 h-screen w-full flex justify-center items-center overflow-hidden pointer-events-none"
+      aria-live="polite"
+    >
+      {isMounted && (
+        <div
+          className="custom-cursor absolute h-full w-full z-20"
+          aria-hidden="true"
+        >
+          <MemoizedCursor x={x} y={y} text={cursorText} />
+        </div>
+      )}
 
-      <div
-        className={`flex-grow sticky top-0 left-0 h-screen w-full flex justify-center items-center overflow-hidden pointer-events-none ${
-          loading ? "invisible" : "visible"
-        }`}
-        aria-live="polite"
-        aria-busy={loading}
+      <motion.div
+        className="absolute w-full h-screen z-20 bg-black pointer-events-none"
+        style={{ opacity: scrollYProgress }}
+        aria-hidden="true"
+      ></motion.div>
+
+      <motion.div
+        className="absolute z-10"
+        initial={{ opacity: 0, translateY: "40px" }}
+        animate={{
+          opacity: 1,
+          translateY: 0,
+        }}
+        transition={{ duration: prefersReducedMotion ? 0.1 : 0.8 }}
       >
-        {isMounted && (
-          <div
-            className="custom-cursor absolute h-full w-full z-20"
-            aria-hidden="true"
-          >
-            <MemoizedCursor x={x} y={y} text={cursorText} />
-          </div>
-        )}
+        <div className="flex flex-col items-center gap-5">
+          <h1 className="font-clash text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[9rem] font-medium">
+            Hyein Kim
+          </h1>
+          <h3 className="font-clash text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
+            Backend Developer
+          </h3>
+        </div>
+      </motion.div>
 
-        <motion.div
-          className="absolute w-full h-screen z-20 bg-black pointer-events-none"
-          style={{ opacity: scrollYProgress }}
-          aria-hidden="true"
-        ></motion.div>
-
-        {/* 로딩 후 애니메이션을 위한 motion.div */}
-        <motion.div
-          className="absolute w-full h-screen z-30 bg-white pointer-events-none"
-          initial={{ opacity: 1 }}
-          animate={{ opacity: showContent ? 0 : 1 }}
-          transition={{
-            duration: 0.8,
-            ease: "easeInOut",
-          }}
-          aria-hidden="true"
-        ></motion.div>
-
-        {/* 로딩 후 애니메이션을 위한 메인 제목 motion.div */}
-        <motion.div
-          className="absolute z-10"
-          initial={{ opacity: 0, translateY: "40px" }}
-          animate={{
-            opacity: showContent ? 1 : 0,
-            translateY: showContent ? 0 : "40px",
-          }}
-          transition={{ duration: prefersReducedMotion ? 0.1 : 0.8 }}
+      <motion.div
+        className="-z-10"
+        animate={{
+          x: movementX,
+          y: movementY,
+          opacity: 1,
+        }}
+        initial={{ opacity: 0 }}
+        transition={{
+          type: "spring",
+          stiffness: prefersReducedMotion ? 2000 : 400,
+          damping: prefersReducedMotion ? 500 : 300,
+          mass: prefersReducedMotion ? 5 : 2,
+        }}
+      >
+        <div
+          className={`${styles.grid_container} grid`}
+          role="grid"
+          aria-label="내가 사랑하는 컨텐츠 모음"
         >
-          <div className="flex flex-col items-center gap-5">
-            <h1 className="font-clash text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-[9rem] font-medium">
-              Hyein Kim
-            </h1>
-            <h3 className="font-clash text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl">
-              Backend Developer
-            </h3>
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="-z-10"
-          animate={{
-            x: movementX,
-            y: movementY,
-            opacity: showContent ? 1 : 0,
-          }}
-          initial={{ opacity: 0 }}
-          transition={{
-            type: "spring",
-            stiffness: prefersReducedMotion ? 2000 : 400,
-            damping: prefersReducedMotion ? 500 : 300,
-            mass: prefersReducedMotion ? 5 : 2,
-          }}
-        >
-          <div
-            className={`${styles.grid_container} grid`}
-            role="grid"
-            aria-label="내가 사랑하는 컨텐츠 모음"
-          >
-            {gridItems}
-          </div>
-        </motion.div>
-      </div>
-    </>
+          {gridItems}
+        </div>
+      </motion.div>
+    </div>
   );
 };
 

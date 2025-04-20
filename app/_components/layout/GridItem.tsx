@@ -18,7 +18,6 @@ interface GridItemProps {
   contentItem: ContentItem | null;
   onMouseEnter: (category: string) => void;
   onMouseLeave: () => void;
-  onImageLoad: () => void;
 }
 
 // 그리드 아이템 컴포넌트
@@ -27,7 +26,6 @@ export default function GridItem({
   contentItem,
   onMouseEnter,
   onMouseLeave,
-  onImageLoad,
 }: GridItemProps) {
   if (!contentItem) {
     return (
@@ -58,7 +56,6 @@ export default function GridItem({
             width={300}
             height={200}
             quality={80}
-            onLoad={onImageLoad}
             priority={index < 6} // 처음 6개 이미지만 우선적으로 로드
             loading={index < 6 ? "eager" : "lazy"}
             className="object-cover w-full h-full"

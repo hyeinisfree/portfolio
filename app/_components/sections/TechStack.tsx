@@ -80,7 +80,7 @@ const DetailCard: React.FC<DetailCardProps> = ({ name, details, onClose }) => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 20 }}
-      className="absolute -left-110 top-0 w-96 bg-white rounded-lg shadow-lg p-6 border border-gray-200"
+      className="absolute -left-110 top-0 w-96 bg-white rounded-2xl shadow-lg p-6 border border-gray-200"
     >
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-medium">{name}</h3>
