@@ -180,7 +180,11 @@ const MyProject = () => {
         </h2>
         <div className="project-container flex divide-x-1 divide-gray-200">
           {projects.map((project) => (
-            <ProjectItem key={project.number} {...project} />
+            <ProjectItem
+              key={project.number}
+              {...project}
+              linkType={project.linkType as "github" | "website"}
+            />
           ))}
         </div>
       </div>
