@@ -247,7 +247,7 @@ const TechStack = () => {
   return (
     <section
       id="tech-stack"
-      className="flex flex-col justify-center items-center font-clash py-20"
+      className="flex flex-col justify-center font-clash py-20"
     >
       <h2 className="text-6xl font-medium mb-12">Tech Stack</h2>
       <motion.div
@@ -264,7 +264,7 @@ const TechStack = () => {
         <span>클릭해서 자세히 알아보세요!</span>
         <span>✨</span>
       </motion.div>
-      <div className="stack-container flex flex-col items-center gap-6 relative">
+      <div className="stack-container flex flex-col gap-6 relative">
         {stacks.map((row, rowIndex) => (
           <motion.div
             key={rowIndex}

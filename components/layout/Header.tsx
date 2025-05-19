@@ -53,6 +53,16 @@ const Header = () => {
             </div>
             <div className="text-md">
               <a
+                href="https://www.linkedin.com/in/hyein-kim-003940322"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900"
+              >
+                LINKEDIN
+              </a>
+            </div>
+            <div className="text-md">
+              <a
                 href="https://hyeinisfree.tistory.com"
                 target="_blank"
                 rel="noopener noreferrer"

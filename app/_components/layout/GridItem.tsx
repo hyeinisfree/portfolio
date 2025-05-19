@@ -36,7 +36,7 @@ export default function GridItem({
     );
   }
 
-  const { title, artist, director, date, season, vive, category, image } =
+  const { title, artist, director, date, season, category, image } =
     contentItem;
 
   return (
@@ -58,7 +58,7 @@ export default function GridItem({
             quality={80}
             priority={index < 6} // 처음 6개 이미지만 우선적으로 로드
             loading={index < 6 ? "eager" : "lazy"}
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full opacity-80"
           />
         </div>
         <div className="flex flex-col font-pretendard text-[10px] font-[200]">
@@ -68,7 +68,6 @@ export default function GridItem({
           {category === "장소" && (
             <>
               <p>Season: {season}</p>
-              <p>Vive: {vive}</p>
             </>
           )}
           <p>Date: {date}</p>

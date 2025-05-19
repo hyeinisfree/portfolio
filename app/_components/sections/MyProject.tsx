@@ -1,6 +1,8 @@
 "use client";
 import { useRef } from "react";
 import Image, { StaticImageData } from "next/image";
+import matdongsan from "@/public/images/matdongsan.webp";
+import hyeinkim from "@/public/images/hyeinkim.webp";
 import sswu from "@/public/images/sswu.jpg";
 import storeasy from "@/public/images/storeasy.jpg";
 import dingdong from "@/public/images/dingdong.jpg";
@@ -100,8 +102,44 @@ const MyProject = () => {
   const projects = [
     {
       number: "01",
+      title: "맛동산",
+      roles: ["Web, iOS", "Backend Developer"],
+      description: (
+        <div className="space-y-1">
+          <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
+          <p>
+            정회원 인증, 게시판/게시글/댓글, 좋아요/스크랩, 포인트 및 티어 기능
+            등 다양한 기능을 제공합니다.
+          </p>
+        </div>
+      ),
+      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      image: matdongsan,
+      linkType: "website",
+      linkUrl: "https://litt.ly/crystalmine",
+    },
+    {
+      number: "02",
+      title: "Hyein Kim",
+      roles: ["Web", "Design and Development"],
+      description: (
+        <div className="space-y-1">
+          <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
+          <p>
+            정회원 인증, 게시판/게시글/댓글, 좋아요/스크랩, 포인트 및 티어 기능
+            등 다양한 기능을 제공합니다.
+          </p>
+        </div>
+      ),
+      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      image: hyeinkim,
+      linkType: "website",
+      linkUrl: "https://litt.ly/crystalmine",
+    },
+    {
+      number: "03",
       title: "수정광산",
-      roles: ["Backend Team Leader", "Backend Developer"],
+      roles: ["Web, iOS, Android", "Backend Team Leader / Developer"],
       description: (
         <div className="space-y-1">
           <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
@@ -117,9 +155,9 @@ const MyProject = () => {
       linkUrl: "https://litt.ly/crystalmine",
     },
     {
-      number: "02",
+      number: "04",
       title: "스토리지",
-      roles: ["Backend Developer"],
+      roles: ["iOS", "Backend Developer"],
       description: (
         <div className="space-y-1">
           <p className="pb-2">
@@ -141,9 +179,9 @@ const MyProject = () => {
       linkUrl: "https://github.com/Storeasy/Storeasy-server",
     },
     {
-      number: "03",
+      number: "05",
       title: "띵-동",
-      roles: ["Team Leader", "Backend Developer"],
+      roles: ["Android", "Team Leader / Backend Developer"],
       description: (
         <div className="space-y-1">
           <p className="pb-2">🏆 2021 공개SW 개발자대회 출품작, 동상 수상</p>

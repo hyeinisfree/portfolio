@@ -25,8 +25,8 @@ const MyJourney: React.FC = () => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: careerSectionRef.current,
-        start: "top 30%",
-        end: "bottom bottom",
+        start: "top 55%",
+        end: "bottom 90%",
         scrub: true,
       },
     });
@@ -42,7 +42,7 @@ const MyJourney: React.FC = () => {
       timelineDotRef.current,
       {
         opacity: 1,
-        ease: "power2.out",
+        ease: "none",
       },
       0
     );
@@ -80,7 +80,6 @@ const MyJourney: React.FC = () => {
       className="flex flex-col justify-center font-clash"
     >
       <h2 className="text-6xl font-medium mb-18">My Journey</h2>
-      {/* <h2 className="text-6xl font-medium mb-18 font-yoonwoo">나의 여정</h2> */}
       <div ref={containerRef} className="career-contanier relative">
         <div
           ref={timelineRef}
@@ -126,6 +125,22 @@ const MyJourney: React.FC = () => {
               Spring Boot를 활용한 웹 서비스 개발, Jenkins와 Docker를 이용한
               CI/CD 구축 등 다양한 프로젝트 경험을 통해 개발 역량과 협업 능력을
               키웠습니다.
+            </p>
+          </div>
+          <div className="career-role col-span-2 flex flex-col gap-1.5 shrink-0">
+            <h4 className="text-3xl font-medium">Backend Engineer</h4>
+            <h5 className="text-xl">잡플래닛</h5>
+          </div>
+          <div className="career-year">
+            <h3 className="text-3xl font-[450]">2022-2024</h3>
+          </div>
+          <div className="career-description font-pretendard col-span-3 col-start-5 shrink-0">
+            <p>
+              잡플래닛의 채용 서비스 개발팀에서 Ruby on Rails 기반의 백엔드
+              엔지니어로 2년간 근무하며, SendGrid와 Braze를 활용한 CRM 기능
+              개선, Vue.js를 활용한 내부 어드민 페이지 개발, API 설계 및 성능
+              개선 등 다양한 업무를 담당했습니다. 비즈니스의 요구사항을 충족하는
+              효율적이고 안정적인 기능 개발에 기여하였습니다.
             </p>
           </div>
           <div className="career-role col-span-2 flex flex-col gap-1.5 shrink-0">
