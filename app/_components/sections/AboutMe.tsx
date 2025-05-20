@@ -1,8 +1,8 @@
-"use client";
-import { useRef, useState, useLayoutEffect } from "react";
-import Image from "next/image";
-import profile from "@/public/images/hyein.jpg";
-import { motion } from "framer-motion";
+'use client';
+import { useRef, useState, useLayoutEffect } from 'react';
+import Image from 'next/image';
+import profile from '@/public/images/hyein.jpg';
+import { motion } from 'framer-motion';
 
 const AboutMe = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -68,8 +68,8 @@ const AboutMe = () => {
           style={{ height: imageHeight ? `${imageHeight}px` : undefined }}
         >
           <div className="inner-item flex flex-col justify-end shrink-0 sticky top-0 bg-white">
-            <h2 className="text-4xl font-medium mb-4">About Me</h2>
-            <div className="font-arita text-xl">
+            <h2 className="text-3xl xl:text-4xl font-medium mb-4">About Me</h2>
+            <div className="font-arita text-sm xl:text-lg">
               <div className="space-y-4">
                 <p>
                   안녕하세요, 기본을 탄탄하게 다지며 성장하는 백엔드 개발자

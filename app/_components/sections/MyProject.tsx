@@ -1,15 +1,15 @@
-"use client";
-import { useRef } from "react";
-import Image, { StaticImageData } from "next/image";
-import matdongsan from "@/public/images/matdongsan.webp";
-import hyeinkim from "@/public/images/hyeinkim.webp";
-import sswu from "@/public/images/sswu.jpg";
-import storeasy from "@/public/images/storeasy.jpg";
-import dingdong from "@/public/images/dingdong.jpg";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MdArrowOutward } from "react-icons/md";
+'use client';
+import { useRef } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import matdongsan from '@/public/images/matdongsan.webp';
+import hyeinkim from '@/public/images/hyeinkim.webp';
+import sswu from '@/public/images/sswu.jpg';
+import storeasy from '@/public/images/storeasy.jpg';
+import dingdong from '@/public/images/dingdong.jpg';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MdArrowOutward } from 'react-icons/md';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +20,7 @@ interface ProjectItemProps {
   description: React.ReactNode;
   techStack: string;
   image: StaticImageData;
-  linkType: "github" | "website";
+  linkType: 'github' | 'website';
   linkUrl: string;
 }
 
@@ -63,7 +63,7 @@ const ProjectItem = ({
         rel="noopener noreferrer"
         className="absolute bottom-2 right-4 bg-gray-800 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 translate-y-0 transition-all duration-300 flex items-center gap-1 shadow-md"
       >
-        <span>{linkType === "github" ? "GitHub" : "Website"}</span>
+        <span>{linkType === 'github' ? 'GitHub' : 'Website'}</span>
         <MdArrowOutward />
       </a>
     </div>
@@ -82,28 +82,28 @@ const MyProject = () => {
     section.style.marginBottom = `${reserveSpace}px`;
     const overflowWidth = container.scrollWidth - section.clientWidth;
 
-    const items = container.querySelectorAll(".project-item");
+    const items = container.querySelectorAll('.project-item');
     const st = gsap.to(items, {
       x: -overflowWidth,
       scrollTrigger: {
         trigger: projectSectionRef.current,
-        start: "top top+=72px",
-        end: "bottom top+=72px",
+        start: 'top top+=72px',
+        end: 'bottom top+=72px',
         pin: true,
         scrub: true,
       },
     });
     return () => {
       st.kill();
-      section.style.marginBottom = "";
+      section.style.marginBottom = '';
     };
   });
 
   const projects = [
     {
-      number: "01",
-      title: "맛동산",
-      roles: ["Web, iOS", "Backend Developer"],
+      number: '01',
+      title: '맛동산',
+      roles: ['Web, iOS', 'Backend Developer'],
       description: (
         <div className="space-y-1">
           <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
@@ -113,15 +113,15 @@ const MyProject = () => {
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      techStack: 'Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker',
       image: matdongsan,
-      linkType: "website",
-      linkUrl: "https://litt.ly/crystalmine",
+      linkType: 'website',
+      linkUrl: 'https://litt.ly/crystalmine',
     },
     {
-      number: "02",
-      title: "Hyein Kim",
-      roles: ["Web", "Design and Development"],
+      number: '02',
+      title: 'Hyein Kim',
+      roles: ['Web', 'Design and Development'],
       description: (
         <div className="space-y-1">
           <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
@@ -131,15 +131,15 @@ const MyProject = () => {
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      techStack: 'Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker',
       image: hyeinkim,
-      linkType: "website",
-      linkUrl: "https://litt.ly/crystalmine",
+      linkType: 'website',
+      linkUrl: 'https://litt.ly/crystalmine',
     },
     {
-      number: "03",
-      title: "수정광산",
-      roles: ["Web, iOS, Android", "Backend Team Leader / Developer"],
+      number: '03',
+      title: '수정광산',
+      roles: ['Web, iOS, Android', 'Backend Team Leader / Developer'],
       description: (
         <div className="space-y-1">
           <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
@@ -149,15 +149,15 @@ const MyProject = () => {
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      techStack: 'Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker',
       image: sswu,
-      linkType: "website",
-      linkUrl: "https://litt.ly/crystalmine",
+      linkType: 'website',
+      linkUrl: 'https://litt.ly/crystalmine',
     },
     {
-      number: "04",
-      title: "스토리지",
-      roles: ["iOS", "Backend Developer"],
+      number: '04',
+      title: '스토리지',
+      roles: ['iOS', 'Backend Developer'],
       description: (
         <div className="space-y-1">
           <p className="pb-2">
@@ -173,15 +173,15 @@ const MyProject = () => {
         </div>
       ),
       techStack:
-        "Typescript, NestJS, MySQL, Github Actions, Docker, Swagger, AWS EC2/RDS/S3/CodeDeploy",
+        'Typescript, NestJS, MySQL, Github Actions, Docker, Swagger, AWS EC2/RDS/S3/CodeDeploy',
       image: storeasy,
-      linkType: "github",
-      linkUrl: "https://github.com/Storeasy/Storeasy-server",
+      linkType: 'github',
+      linkUrl: 'https://github.com/Storeasy/Storeasy-server',
     },
     {
-      number: "05",
-      title: "띵-동",
-      roles: ["Android", "Team Leader / Backend Developer"],
+      number: '05',
+      title: '띵-동',
+      roles: ['Android', 'Team Leader / Backend Developer'],
       description: (
         <div className="space-y-1">
           <p className="pb-2">🏆 2021 공개SW 개발자대회 출품작, 동상 수상</p>
@@ -197,10 +197,10 @@ const MyProject = () => {
         </div>
       ),
       techStack:
-        "Java, Spring Boot, Spring Rest Docs, MySQL, Redis, AWS EC2/RDS/S3, ",
+        'Java, Spring Boot, Spring Rest Docs, MySQL, Redis, AWS EC2/RDS/S3, ',
       image: dingdong,
-      linkType: "github",
-      linkUrl: "https://github.com/Team-Dingdong/dingdong-server",
+      linkType: 'github',
+      linkUrl: 'https://github.com/Team-Dingdong/dingdong-server',
     },
   ];
 
@@ -210,10 +210,8 @@ const MyProject = () => {
       ref={projectSectionRef}
       className="font-clash flex flex-col justify-center"
     >
-      {/* <div className="w-screen absolute left-1/2 right-1/2 bottom-0 -mx-[50vw] h-px bg-gray-200"></div> */}
-      {/* <div className="projects overflow-x-hidden"> */}
       <div ref={containerRef} className="absolute">
-        <h2 className="absolute text-6xl font-medium z-50 -top-32">
+        <h2 className="absolute text-4xl xl:text-6xl font-medium z-50 -top-32">
           My Project
         </h2>
         <div className="project-container flex divide-x-1 divide-gray-200">
@@ -221,12 +219,11 @@ const MyProject = () => {
             <ProjectItem
               key={project.number}
               {...project}
-              linkType={project.linkType as "github" | "website"}
+              linkType={project.linkType as 'github' | 'website'}
             />
           ))}
         </div>
       </div>
-      {/* </div> */}
     </section>
   );
 };
