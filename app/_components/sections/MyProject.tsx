@@ -22,6 +22,8 @@ interface ProjectItemProps {
   image: StaticImageData;
   linkType: 'github' | 'website';
   linkUrl: string;
+  isFirst?: boolean;
+  isLast?: boolean;
 }
 
 const ProjectItem = ({
@@ -33,25 +35,35 @@ const ProjectItem = ({
   image,
   linkType,
   linkUrl,
+  isFirst,
+  isLast,
 }: ProjectItemProps) => (
-  <div className="project-item px-8 md:px-12 lg:px-16 py-12 w-[380px] md:max-w-[440px] lg:min-w-[480px] xl:min-w-[500px] 2xl:min-w-[540px] flex flex-col justify-between gap-20">
-    <div className="project-info flex flex-col gap-8 lg:gap-10">
+  <div
+    className={`project-item ${
+      isFirst
+        ? 'pl-0 pr-4 md:pr-8 2xl:pr-12'
+        : isLast
+        ? 'pr-0 pl-4 md:pl-8 2xl:pl-12'
+        : 'px-4 md:px-8 2xl:px-12'
+    } w-[380px] md:min-w-[400px] 2xl:min-w-[480px] flex flex-col justify-between gap-4`}
+  >
+    <div className="project-info flex flex-col gap-6 2xl:gap-10">
       <div className="project-title flex justify-between">
-        <h3 className="text-3xl md:text-4xl lg:text-5xl">{number}</h3>
+        <h3 className="text-xl md:text-2xl 2xl:text-3xl">{number}</h3>
         <div className="flex flex-col items-end">
-          <h4 className="text-xl md:text-xl lg:text-[1.6rem]">{title}</h4>
-          <div className="text-sm md:text-md lg:text-[1rem] flex flex-col items-end">
+          <h4 className="text-lg md:text-xl 2xl:text-2xl">{title}</h4>
+          <div className="text-xs md:text-sm 2xl:text-base flex flex-col items-end">
             {roles.map((role, index) => (
               <p key={index}>{role}</p>
             ))}
           </div>
         </div>
       </div>
-      <div className="project-description text-sm md:text-sm lg:text-[1rem] flex flex-col gap-4 lg:gap-6">
+      <div className="project-description text-xs md:text-sm 2xl:text-base flex flex-col gap-4 lg:gap-6">
         {description}
         <div className="project-techstack">
-          <h4 className="sm:text-sm md:text-md lg:text-[1.1rem]">Tech Stack</h4>
-          <p className="sm:text-sm md:text-sm lg:text-[1rem]">{techStack}</p>
+          <h4 className="text-xs md:text-sm 2xl:text-[1.1rem]">Tech Stack</h4>
+          <p className="text-xs md:text-sm 2xl:text-base">{techStack}</p>
         </div>
       </div>
     </div>
@@ -210,16 +222,21 @@ const MyProject = () => {
       ref={projectSectionRef}
       className="font-clash flex flex-col justify-center"
     >
-      <div ref={containerRef} className="absolute">
-        <h2 className="absolute text-4xl xl:text-6xl font-medium z-50 -top-32">
+      <div
+        ref={containerRef}
+        className="flex flex-col flex-grow justify-between mt-8 mb-12"
+      >
+        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium z-50 -top-32">
           My Project
         </h2>
-        <div className="project-container flex divide-x-1 divide-gray-200">
-          {projects.map((project) => (
+        <div className="project-container flex">
+          {projects.map((project, index) => (
             <ProjectItem
               key={project.number}
               {...project}
               linkType={project.linkType as 'github' | 'website'}
+              isFirst={index === 0}
+              isLast={index === projects.length - 1}
             />
           ))}
         </div>
