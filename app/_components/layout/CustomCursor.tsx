@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 interface CustomCursorProps {
   x: number;
@@ -10,13 +10,13 @@ interface CustomCursorProps {
 export default function CustomCursor({ x, y, text }: CustomCursorProps) {
   return (
     <motion.div
-      className="font-yoonwoo text-xl info-box shadow-md w-max px-4 border-1 border-gray-100 rounded-2xl bg-white"
+      className="hidden sm:block font-yoonwoo text-xl info-box shadow-md w-max px-4 border-1 border-gray-100 rounded-2xl bg-white"
       animate={{
         x: x,
         y: y,
       }}
       transition={{
-        type: "spring",
+        type: 'spring',
         bounce: 0.1,
         stiffness: 700,
         damping: 30,

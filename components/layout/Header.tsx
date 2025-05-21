@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 // import { usePathname } from "next/navigation";
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 const Header = () => {
   // const pathname = usePathname();
@@ -17,11 +17,11 @@ const Header = () => {
     <motion.header className="sticky top-0 left-0 right-0 z-50 font-clash bg-white flex items-center h-18">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <Link href="/" className="text-xl">
+          <Link href="/" className="text-base md:text-xl">
             hyeinisfree.dev
           </Link>
 
-          <nav className="flex space-x-8">
+          <nav className="flex space-x-8 text-sm md:text-md">
             {/* {navItems.map((item) => (
               <Link
                 key={item.path}
@@ -33,7 +33,7 @@ const Header = () => {
                 {item.name}
               </Link>
             ))} */}
-            <div className="text-md">
+            <div>
               <a
                 href="mailto:hyeinsfree.dev@gmail.come"
                 className="text-gray-500 hover:text-gray-900"
@@ -41,7 +41,7 @@ const Header = () => {
                 CONTACT
               </a>
             </div>
-            <div className="text-md">
+            <div>
               <a
                 href="https://github.com/hyeinisfree"
                 target="_blank"
@@ -51,7 +51,7 @@ const Header = () => {
                 GITHUB
               </a>
             </div>
-            <div className="text-md">
+            <div>
               <a
                 href="https://www.linkedin.com/in/hyein-kim-003940322"
                 target="_blank"
@@ -61,7 +61,7 @@ const Header = () => {
                 LINKEDIN
               </a>
             </div>
-            <div className="text-md">
+            <div>
               <a
                 href="https://hyeinisfree.tistory.com"
                 target="_blank"

@@ -123,7 +123,7 @@ const MyJourney: React.FC = () => {
             </div>
           </div>
           <div className="career-year flex justify-end">
-            <h3 className="text-xl xl:text-3xl font-[450]">2018 - 2022</h3>
+            <h3 className="text-lg xl:text-3xl font-[450]">2018 - 2022</h3>
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description pb-4 md:pb-0 col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
@@ -144,7 +144,7 @@ const MyJourney: React.FC = () => {
             </div>
           </div>
           <div className="career-year flex justify-end">
-            <h3 className="text-xl xl:text-3xl font-[450]">2022 - 2024</h3>
+            <h3 className="text-lg xl:text-3xl font-[450]">2022 - 2024</h3>
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description pb-4 md:pb-0 col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
@@ -165,7 +165,7 @@ const MyJourney: React.FC = () => {
             </div>
           </div>
           <div className="career-year flex justify-end">
-            <h3 className="text-xl xl:text-3xl font-[450]">2022 - 2024</h3>
+            <h3 className="text-lg xl:text-3xl font-[450]">2022 - 2024</h3>
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">

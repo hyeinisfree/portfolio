@@ -35,17 +35,9 @@ const ProjectItem = ({
   image,
   linkType,
   linkUrl,
-  isFirst,
-  isLast,
 }: ProjectItemProps) => (
   <div
-    className={`project-item ${
-      isFirst
-        ? 'md:pr-8 2xl:pr-12'
-        : isLast
-        ? 'md:pl-8 2xl:pl-12'
-        : 'md:px-8 2xl:px-12'
-    } min-w-[380px] md:min-w-[400px] 2xl:min-w-[480px] flex flex-col justify-between gap-4 pb-6`}
+    className={`project-item min-w-full md:min-w-[340px] lg:min-w-[380px] xl:min-w-[420px] flex flex-col justify-between gap-4 pb-6`}
   >
     <div className="project-info flex flex-col gap-6 2xl:gap-10">
       <div className="project-title flex justify-between">
@@ -264,19 +256,17 @@ const MyProject = () => {
     >
       <div
         ref={containerRef}
-        className="flex flex-col flex-grow justify-center 2xl:justify-between mt-8 mb-12"
+        className="flex flex-col justify-center 2xl:justify-between mt-8 mb-12"
       >
-        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-8 md:mb-12 xl:mb-18 2xl:mb-24">
+        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-8 md:mb-12 xl:mb-16 2xl:mb-20">
           My Project
         </h2>
-        <div className="project-container flex flex-col md:flex-row gap-y-6 md:gap-y-0 divide-y-1 divide-solid divide-gray-200 md:divide-y-0">
-          {projects.map((project, index) => (
+        <div className="project-container flex flex-col md:flex-row gap-y-6 md:gap-y-0 md:gap-x-16 divide-y-1 divide-solid divide-gray-200 md:divide-y-0">
+          {projects.map((project) => (
             <ProjectItem
               key={project.number}
               {...project}
               linkType={project.linkType as 'github' | 'website'}
-              isFirst={index === 0}
-              isLast={index === projects.length - 1}
             />
           ))}
         </div>
