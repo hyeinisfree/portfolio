@@ -226,7 +226,7 @@ const MyProject = () => {
         ref={containerRef}
         className="flex flex-col flex-grow justify-between mt-8 mb-12"
       >
-        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium z-50 -top-32">
+        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium">
           My Project
         </h2>
         <div className="project-container flex">
