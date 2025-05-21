@@ -28,23 +28,30 @@ interface SkillProps {
 const Skill: React.FC<SkillProps> = ({ stack, isOpen, toggleOpen }) => {
   const Icon = stack.icon;
   return (
-    <div className="border border-gray-300 rounded-lg mb-4">
+    <div className="border border-gray-300 rounded-lg mb-2 md:mb-4">
       <button
         onClick={toggleOpen}
-        className="w-full flex items-center p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg focus:outline-none"
+        className="w-full flex items-center p-2.5 md:p-3 lg:p-4 bg-gray-100 hover:bg-gray-200 rounded-t-lg focus:outline-none"
         aria-expanded={isOpen}
         aria-controls={`${stack.name}-details`}
       >
-        <Icon className="w-8 h-8 mr-3" style={{ color: stack.color }} />
-        <span className="text-lg font-medium">{stack.name}</span>
-        <span className="ml-auto text-xl">{isOpen ? '−' : '+'}</span>
+        <Icon
+          className="w-4 md:w-6 xl:w-8 h-4 md:h-6 xl:h-8 mr-3"
+          style={{ color: stack.color }}
+        />
+        <span className="text-sm md:text-base xl:text-lg font-medium">
+          {stack.name}
+        </span>
+        <span className="ml-auto text-sm md:text-base xl:text-lg">
+          {isOpen ? '−' : '+'}
+        </span>
       </button>
       {isOpen && (
         <div
           id={`${stack.name}-details`}
           className="p-4 bg-white text-gray-700 border-t border-gray-300 rounded-b-lg"
         >
-          <ul className="list-disc list-inside space-y-1">
+          <ul className="list-disc list-inside space-y-1 text-sm md:text-base">
             {stack.details.map((detail, idx) => (
               <li key={idx}>{detail}</li>
             ))}
@@ -56,7 +63,7 @@ const Skill: React.FC<SkillProps> = ({ stack, isOpen, toggleOpen }) => {
 };
 
 const TechStack = () => {
-  const [openSkill, setOpenSkill] = useState<string | null>(null);
+  const [openSkill, setOpenSkill] = useState<Set<string>>(new Set());
 
   const stacksByCategory: { [category: string]: StackData[] } = {
     Language: [
@@ -172,12 +179,20 @@ const TechStack = () => {
   };
 
   const toggleSkill = (name: string) => {
-    setOpenSkill(openSkill === name ? null : name);
+    setOpenSkill((prev) => {
+      const newSet = new Set(prev);
+      if (newSet.has(name)) {
+        newSet.delete(name);
+      } else {
+        newSet.add(name);
+      }
+      return newSet;
+    });
   };
 
   return (
     <section id="tech-stack" className="flex flex-col font-clash py-20">
-      <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-12">
+      <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-4 md:mb-8 xl:mb-12">
         Tech Stack
       </h2>
       <div
@@ -185,18 +200,20 @@ const TechStack = () => {
           grid grid-cols-1
           lg:grid-cols-2
           xl:grid-cols-3
-          gap-x-10 gap-y-8
+          gap-x-5 xl:gap-x-10 gap-y-2 md:gap-y-4 xl:gap-y-8
         "
       >
         {Object.entries(stacksByCategory).map(([category, stacks]) => (
-          <div key={category} className="mb-0">
-            <h3 className="text-2xl font-medium mb-4">{category}</h3>
+          <div key={category}>
+            <h3 className="text-xl xl:text-2xl font-medium mb-2 xl:mb-4">
+              {category}
+            </h3>
             <div>
               {stacks.map((stack) => (
                 <Skill
                   key={stack.name}
                   stack={stack}
-                  isOpen={openSkill === stack.name}
+                  isOpen={openSkill.has(stack.name)}
                   toggleOpen={() => toggleSkill(stack.name)}
                 />
               ))}
