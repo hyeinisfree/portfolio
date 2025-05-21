@@ -2,7 +2,6 @@
 import { useRef, useEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import styles from './MyCareer.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -42,7 +41,7 @@ const MyJourney: React.FC = () => {
       timelineDotRef.current,
       {
         opacity: 1,
-        ease: 'none',
+        ease: 'power4.out',
       },
       0
     );
@@ -86,7 +85,7 @@ const MyJourney: React.FC = () => {
         <div className="timeline hidden md:block">
           <div
             ref={timelineRef}
-            className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-violet-300 z-20"
+            className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-[#A0F4B0] z-20"
             style={{
               height: '0%',
               position: 'absolute',
@@ -95,7 +94,7 @@ const MyJourney: React.FC = () => {
           ></div>
           <div
             ref={timelineDotRef}
-            className="career-timeline absolute inset-x-0 mx-auto w-3 h-3 bg-gradient-to-b bg-violet-400 rounded-full z-20"
+            className="career-timeline absolute inset-x-0 mx-auto w-3 h-3 bg-gradient-to-b bg-[#A7F3AE] rounded-full z-20"
             style={{
               opacity: 0,
             }}
@@ -109,10 +108,7 @@ const MyJourney: React.FC = () => {
               position: 'absolute',
               bottom: 0,
             }}
-          >
-            <div className={styles.careerMaskGradient}></div>
-            <div className={styles.careerMaskBackground}></div>
-          </div>
+          ></div>
         </div>
 
         <div className="career-item grid grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr_0.8fr_3fr] grid-rows-[auto_auto] gap-y-1.5 md:gap-y-12">
