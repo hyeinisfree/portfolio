@@ -20,9 +20,9 @@ const Header = () => {
           <Link href="/" className="text-base md:text-xl">
             hyeinisfree.dev
           </Link>
-
-          <nav className="flex space-x-8 text-sm md:text-md">
-            {/* {navItems.map((item) => (
+          <div className="hidden md:block">
+            <nav className="flex space-x-8 text-base">
+              {/* {navItems.map((item) => (
               <Link
                 key={item.path}
                 href={item.path}
@@ -33,45 +33,46 @@ const Header = () => {
                 {item.name}
               </Link>
             ))} */}
-            <div>
-              <a
-                href="mailto:hyeinsfree.dev@gmail.come"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                CONTACT
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://github.com/hyeinisfree"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                GITHUB
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://www.linkedin.com/in/hyein-kim-003940322"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                LINKEDIN
-              </a>
-            </div>
-            <div>
-              <a
-                href="https://hyeinisfree.tistory.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-500 hover:text-gray-900"
-              >
-                BLOG
-              </a>
-            </div>
-          </nav>
+              <div>
+                <a
+                  href="mailto:hyeinsfree.dev@gmail.come"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  CONTACT
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://github.com/hyeinisfree"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  GITHUB
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://www.linkedin.com/in/hyein-kim-003940322"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  LINKEDIN
+                </a>
+              </div>
+              <div>
+                <a
+                  href="https://hyeinisfree.tistory.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-500 hover:text-gray-900"
+                >
+                  BLOG
+                </a>
+              </div>
+            </nav>
+          </div>
         </div>
       </div>
     </motion.header>
