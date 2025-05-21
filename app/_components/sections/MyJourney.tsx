@@ -79,7 +79,7 @@ const MyJourney: React.FC = () => {
       id="my-career-experience"
       className="flex flex-col justify-center font-clash"
     >
-      <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-2 md:mb-6 xl:mb-12 2xl:mb-18">
+      <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-8 md:mb-12 xl:mb-18 2xl:mb-24">
         My Journey
       </h2>
       <div ref={containerRef} className="career-contanier relative">
@@ -115,7 +115,7 @@ const MyJourney: React.FC = () => {
           </div>
         </div>
 
-        <div className="career-item grid grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr_0.8fr_3fr] grid-rows-[auto_auto] gap-y-1.5 md:gap-y-12 py-6 ">
+        <div className="career-item grid grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr_0.8fr_3fr] grid-rows-[auto_auto] gap-y-1.5 md:gap-y-12">
           <div className="career-role">
             <div className="flex flex-col md:gap-1.5">
               <h4 className="text-xl xl:text-3xl font-medium">컴퓨터공학과</h4>

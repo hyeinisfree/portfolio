@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 import Image, { StaticImageData } from 'next/image';
 import matdongsan from '@/public/images/matdongsan.webp';
 import hyeinkim from '@/public/images/hyeinkim.webp';
@@ -7,7 +7,7 @@ import sswu from '@/public/images/sswu.jpg';
 import storeasy from '@/public/images/storeasy.jpg';
 import dingdong from '@/public/images/dingdong.jpg';
 import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+// import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MdArrowOutward } from 'react-icons/md';
 
@@ -41,21 +41,26 @@ const ProjectItem = ({
   <div
     className={`project-item ${
       isFirst
-        ? 'pl-0 pr-4 md:pr-8 2xl:pr-12'
+        ? 'md:pr-8 2xl:pr-12'
         : isLast
-        ? 'pr-0 pl-4 md:pl-8 2xl:pl-12'
-        : 'px-4 md:px-8 2xl:px-12'
-    } min-w-[380px] md:min-w-[400px] 2xl:min-w-[480px] flex flex-col justify-between gap-4`}
+        ? 'md:pl-8 2xl:pl-12'
+        : 'md:px-8 2xl:px-12'
+    } min-w-[380px] md:min-w-[400px] 2xl:min-w-[480px] flex flex-col justify-between gap-4 pb-6`}
   >
     <div className="project-info flex flex-col gap-6 2xl:gap-10">
       <div className="project-title flex justify-between">
         <h3 className="text-xl md:text-2xl 2xl:text-3xl">{number}</h3>
-        <div className="flex flex-col items-end">
-          <h4 className="text-lg md:text-xl 2xl:text-2xl">{title}</h4>
-          <div className="text-xs md:text-sm 2xl:text-base flex flex-col items-end">
+        <div className="flex flex-row md:flex-col items-end">
+          <div className="flex flex-col items-end">
+            <h4 className="text-lg md:text-xl 2xl:text-2xl">{title}</h4>
             {roles.map((role, index) => (
-              <p key={index}>{role}</p>
+              <p key={index} className="text-xs md:text-sm 2xl:text-base">
+                {role}
+              </p>
             ))}
+          </div>
+          <div className="project-image relative group rounded-sm overflow-hidden md:hidden ml-3">
+            <Image src={image} alt={title} width={120} height={80} />
           </div>
         </div>
       </div>
@@ -67,7 +72,7 @@ const ProjectItem = ({
         </div>
       </div>
     </div>
-    <div className="project-image relative group rounded-sm overflow-hidden">
+    <div className="project-image relative group rounded-sm overflow-hidden hidden md:block">
       <Image src={image} alt={title} />
       <a
         href={linkUrl}
@@ -86,30 +91,65 @@ const MyProject = () => {
   const projectSectionRef = useRef<HTMLElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useGSAP(() => {
-    const section = projectSectionRef.current;
-    const container = containerRef.current;
-    if (!section || !container) return;
-    const reserveSpace = section.clientHeight;
-    section.style.marginBottom = `${reserveSpace}px`;
-    const overflowWidth = container.scrollWidth - section.clientWidth;
+  // useGSAP(() => {
+  //   if (!window.matchMedia('(min-width: 768px)').matches) return;
 
-    const items = container.querySelectorAll('.project-item');
-    const st = gsap.to(items, {
-      x: -overflowWidth,
-      scrollTrigger: {
-        trigger: projectSectionRef.current,
-        start: 'top top+=72px',
-        end: 'bottom top+=72px',
-        pin: true,
-        scrub: true,
-      },
+  //   const section = projectSectionRef.current;
+  //   const container = containerRef.current;
+  //   if (!section || !container) return;
+  //   const reserveSpace = section.clientHeight;
+  //   section.style.marginBottom = `${reserveSpace}px`;
+  //   const overflowWidth = container.scrollWidth - section.clientWidth;
+
+  //   const items = container.querySelectorAll('.project-item');
+  //   const st = gsap.to(items, {
+  //     x: -overflowWidth,
+  //     scrollTrigger: {
+  //       trigger: projectSectionRef.current,
+  //       start: 'top top+=72px',
+  //       end: 'bottom top+=72px',
+  //       pin: true,
+  //       scrub: true,
+  //     },
+  //   });
+  //   return () => {
+  //     st.kill();
+  //     section.style.marginBottom = '';
+  //   };
+  // });
+
+  useLayoutEffect(() => {
+    const mm = gsap.matchMedia();
+
+    mm.add('(min-width: 768px)', () => {
+      const section = projectSectionRef.current;
+      const container = containerRef.current;
+      if (!section || !container) return;
+
+      const reserveSpace = section.clientHeight;
+      section.style.marginBottom = `${reserveSpace}px`;
+      const overflowWidth = container.scrollWidth - section.clientWidth;
+
+      const items = container.querySelectorAll('.project-item');
+      const st = gsap.to(items, {
+        x: -overflowWidth,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top top+=72px',
+          end: 'bottom top+=72px',
+          pin: true,
+          scrub: true,
+        },
+      });
+
+      return () => {
+        st.kill();
+        section.style.marginBottom = '';
+      };
     });
-    return () => {
-      st.kill();
-      section.style.marginBottom = '';
-    };
-  });
+
+    return () => mm.revert();
+  }, []);
 
   const projects = [
     {
@@ -226,10 +266,10 @@ const MyProject = () => {
         ref={containerRef}
         className="flex flex-col flex-grow justify-center 2xl:justify-between mt-8 mb-12"
       >
-        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium md:mb-14 lg:mb-18 xl:mb-24 2xl:mb-0">
+        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-8 md:mb-12 xl:mb-18 2xl:mb-24">
           My Project
         </h2>
-        <div className="project-container flex flex-col md:flex-row">
+        <div className="project-container flex flex-col md:flex-row gap-y-6 md:gap-y-0 divide-y-1 divide-solid divide-gray-200 md:divide-y-0">
           {projects.map((project, index) => (
             <ProjectItem
               key={project.number}
