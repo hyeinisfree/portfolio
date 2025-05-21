@@ -10,6 +10,7 @@ const AboutMe = () => {
   const innerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
     if (!imgRef.current) return;
 
     const resizeObserver = new ResizeObserver((entries) => {
@@ -26,6 +27,7 @@ const AboutMe = () => {
   }, []);
 
   useLayoutEffect(() => {
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
     if (imageHeight === undefined) return;
 
     const inner = innerRef.current;
@@ -51,7 +53,7 @@ const AboutMe = () => {
           duration: 0.6,
         }}
       >
-        <div className="image-container w-1/4 h-max shrink-0 hidden sm:block">
+        <div className="image-container w-1/4 h-max shrink-0 hidden md:block">
           <Image
             ref={imgRef}
             src={profile}
@@ -64,13 +66,13 @@ const AboutMe = () => {
         </div>
         <div
           ref={innerRef}
-          className="text-container flex flex-col justify-end gap-3 xl:gap-6 overflow-hidden w-3/4"
+          className="text-container flex flex-col justify-end gap-3 xl:gap-6 overflow-hidden md:w-3/4"
           style={{ height: imageHeight ? `${imageHeight}px` : undefined }}
         >
           <h2 className="text-2xl md:text-3xl xl:text-5xl font-medium">
             About Me
           </h2>
-          <div className="font-arita text-xs md:text-sm xl:text-lg">
+          <div className="font-arita text-sm lg:text-base xl:text-lg">
             <div className="space-y-2 xl:space-y-4">
               <p>
                 안녕하세요, 기본을 탄탄하게 다지며 성장하는 백엔드 개발자
