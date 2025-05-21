@@ -1,5 +1,5 @@
-import Image from "next/image";
-import { StaticImageData } from "next/image";
+import Image from 'next/image';
+import { StaticImageData } from 'next/image';
 
 export interface ContentItem {
   index: number;
@@ -9,7 +9,7 @@ export interface ContentItem {
   date: string;
   season?: string;
   vive?: string;
-  category: "영화" | "음악" | "장소";
+  category: '영화' | '음악' | '장소';
   image: StaticImageData;
 }
 
@@ -32,7 +32,9 @@ export default function GridItem({
       <div
         className="border-1 border-gray-200 border-dotted"
         aria-hidden="true"
-      ></div>
+      >
+        {/* {index} */}
+      </div>
     );
   }
 
@@ -49,6 +51,7 @@ export default function GridItem({
         role="button"
         aria-label={`${title} - ${category}`}
       >
+        {/* {index}s */}
         <div className="flex justify-center items-center opacity-90 overflow-hidden">
           <Image
             src={image}
@@ -57,15 +60,15 @@ export default function GridItem({
             height={200}
             quality={80}
             priority={index < 6} // 처음 6개 이미지만 우선적으로 로드
-            loading={index < 6 ? "eager" : "lazy"}
+            loading={index < 6 ? 'eager' : 'lazy'}
             className="object-cover w-full h-full opacity-80"
           />
         </div>
-        <div className="flex flex-col font-pretendard text-[10px] font-[200]">
+        <div className="flex flex-col font-pretendard text-[6px] md:text-[7px] lg:text-[8px] xl:text-[9px] font-[200]">
           <p>Title: {title}</p>
-          {category === "음악" && <p>Artist: {artist}</p>}
-          {category === "영화" && <p>Director: {director}</p>}
-          {category === "장소" && (
+          {category === '음악' && <p>Artist: {artist}</p>}
+          {category === '영화' && <p>Director: {director}</p>}
+          {category === '장소' && (
             <>
               <p>Season: {season}</p>
             </>

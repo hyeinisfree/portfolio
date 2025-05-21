@@ -1,27 +1,27 @@
-"use client";
+'use client';
 
-import styles from "./styles.module.css";
-import { motion, useScroll, useReducedMotion } from "framer-motion";
-import { useState, useEffect, useCallback, useMemo, memo } from "react";
-import useMouse from "@/hooks/useMouse";
-import eea from "@/public/images/eea.webp";
-import sunshine from "@/public/images/eternal_sunshine.webp";
-import terminal from "@/public/images/terminal.webp";
-import intern from "@/public/images/inetern.webp";
-import yoonjiyoung from "@/public/images/yoonjiyoung.webp";
-import love from "@/public/images/love.webp";
-import sweetnothing from "@/public/images/sweetnothing.webp";
-import whatever from "@/public/images/whatever.webp";
-import park from "@/public/images/park.webp";
-import frr from "@/public/images/frr.webp";
-import twilightzone from "@/public/images/twilight_zone.webp";
-import happyness from "@/public/images/happyness.webp";
-import loveholic from "@/public/images/loveholic.webp";
-import minsu from "@/public/images/minsu.webp";
-import foryou from "@/public/images/foryou.webp";
-import GridItem from "./GridItem";
-import CustomCursor from "./CustomCursor";
-import type { ContentItem } from "./GridItem";
+import styles from './styles.module.css';
+import { motion, useScroll, useReducedMotion } from 'framer-motion';
+import { useState, useEffect, useCallback, useMemo, memo } from 'react';
+import useMouse from '@/hooks/useMouse';
+import eea from '@/public/images/eea.webp';
+import sunshine from '@/public/images/eternal_sunshine.webp';
+import terminal from '@/public/images/terminal.webp';
+import intern from '@/public/images/inetern.webp';
+import yoonjiyoung from '@/public/images/yoonjiyoung.webp';
+import love from '@/public/images/love.webp';
+import sweetnothing from '@/public/images/sweetnothing.webp';
+import whatever from '@/public/images/whatever.webp';
+import park from '@/public/images/park.webp';
+import frr from '@/public/images/frr.webp';
+import twilightzone from '@/public/images/twilight_zone.webp';
+import happyness from '@/public/images/happyness.webp';
+import loveholic from '@/public/images/loveholic.webp';
+import minsu from '@/public/images/minsu.webp';
+import foryou from '@/public/images/foryou.webp';
+import GridItem from './GridItem';
+import CustomCursor from './CustomCursor';
+import type { ContentItem } from './GridItem';
 
 // 메모이제이션된 그리드 아이템
 const MemoizedGridItem = memo(GridItem);
@@ -30,7 +30,7 @@ const MemoizedGridItem = memo(GridItem);
 const MemoizedCursor = memo(CustomCursor);
 
 const LandingPage = () => {
-  const [cursorText, setCursorText] = useState("사랑하는");
+  const [cursorText, setCursorText] = useState('사랑하는');
   const [centerX, setCenterX] = useState(0);
   const [centerY, setCenterY] = useState(0);
   const [isMounted, setIsMounted] = useState(false);
@@ -42,124 +42,126 @@ const LandingPage = () => {
   const contentItems = useMemo<ContentItem[]>(
     () => [
       {
-        index: 39,
-        title: "Everything Everywhere All At Once",
-        director: "Daniel Kwan, Daniel Scheinert",
-        date: "2022.10.12",
-        category: "영화",
-        image: eea,
-      },
-      {
-        index: 13,
-        title: "Eternal Sunshine",
-        director: "Michel Gondry",
-        date: "2004.03.19",
-        category: "영화",
-        image: sunshine,
-      },
-      {
-        index: 21,
-        title: "The Terminal",
-        director: "Steven Spielberg",
-        date: "2004.06.18",
-        category: "영화",
-        image: terminal,
-      },
-      {
-        index: 55,
-        title: "The Intern",
-        director: "Nancy Meyers",
-        date: "2015.09.25",
-        category: "영화",
-        image: intern,
-      },
-      {
-        index: 1,
-        title: "언젠가 너와 나",
-        artist: "윤지영",
-        date: "2019.09.25",
-        category: "음악",
+        index: 16,
+        title: '언젠가 너와 나',
+        artist: '윤지영',
+        date: '2019.09.25',
+        category: '음악',
         image: yoonjiyoung,
       },
       {
-        index: 70,
-        title: "그대만 있다면",
-        artist: "Loveholic",
-        date: "2006.04.13",
-        category: "음악",
-        image: loveholic,
-      },
-      {
-        index: 63,
-        title: "love.",
-        artist: "wate to earth",
-        date: "2023.04.20",
-        category: "음악",
-        image: love,
-      },
-      {
-        index: 6,
-        title: "twilight zone",
-        artist: "Ariana Grande",
-        date: "2025.03.28",
-        category: "음악",
+        index: 21,
+        title: 'twilight zone',
+        artist: 'Ariana Grande',
+        date: '2025.03.28',
+        category: '음악',
         image: twilightzone,
       },
+
       {
-        index: 69,
-        title: "For you (Feat. Crush)",
-        artist: "이하이",
-        date: "2020.12.16",
-        category: "음악",
-        image: foryou,
+        index: 31,
+        title: 'Eternal Sunshine',
+        director: 'Michel Gondry',
+        date: '2004.03.19',
+        category: '영화',
+        image: sunshine,
       },
       {
-        index: 77,
-        title: "No worries, I'm good",
-        artist: "민수",
-        date: "2022.12.02",
-        category: "음악",
-        image: minsu,
-      },
-      {
-        index: 30,
-        title: "Sweet Nothing",
-        artist: "Taylor Swift",
-        date: "2022.10.21",
-        category: "음악",
-        image: sweetnothing,
-      },
-      {
-        index: 25,
-        title: "Whatever",
-        artist: "Oasis",
-        date: "1994.12.18",
-        category: "음악",
-        image: whatever,
-      },
-      {
-        index: 47,
-        title: "오래오래",
-        artist: "죠지",
-        date: "2025.04.15",
-        category: "음악",
-        image: frr,
-      },
-      {
-        index: 18,
-        title: "우리집 앞",
-        season: "Summer",
-        category: "장소",
-        date: "2024.09.03",
+        index: 35,
+        title: '우리집 앞',
+        season: 'Summer',
+        category: '장소',
+        date: '2024.09.03',
         image: park,
       },
       {
-        index: 51,
-        title: "The Pursuit of Happyness",
-        director: "Gabriele Muccino",
-        date: "2006.12.15",
-        category: "영화",
+        index: 42,
+        title: 'The Terminal',
+        director: 'Steven Spielberg',
+        date: '2004.06.18',
+        category: '영화',
+        image: terminal,
+      },
+      {
+        index: 46,
+        title: 'Whatever',
+        artist: 'Oasis',
+        date: '1994.12.18',
+        category: '음악',
+        image: whatever,
+      },
+      {
+        index: 53,
+        title: 'Sweet Nothing',
+        artist: 'Taylor Swift',
+        date: '2022.10.21',
+        category: '음악',
+        image: sweetnothing,
+      },
+      {
+        index: 63,
+        title: 'Everything Everywhere All At Once',
+        director: 'Daniel Kwan, Daniel Scheinert',
+        date: '2022.10.12',
+        category: '영화',
+        image: eea,
+      },
+      {
+        index: 74,
+        title: '오래오래',
+        artist: '죠지',
+        date: '2025.04.15',
+        category: '음악',
+        image: frr,
+      },
+      {
+        index: 81,
+        title: 'The Pursuit of Happyness',
+        director: 'Gabriele Muccino',
+        date: '2006.12.15',
+        category: '영화',
         image: happyness,
+      },
+      {
+        index: 85,
+        title: 'The Intern',
+        director: 'Nancy Meyers',
+        date: '2015.09.25',
+        category: '영화',
+        image: intern,
+      },
+      {
+        index: 96,
+        title: 'love.',
+        artist: 'wate to earth',
+        date: '2023.04.20',
+        category: '음악',
+        image: love,
+      },
+      {
+        index: 100,
+        title: 'For you (Feat. Crush)',
+        artist: '이하이',
+        date: '2020.12.16',
+        category: '음악',
+        image: foryou,
+      },
+      {
+        index: 106,
+        title: '그대만 있다면',
+        artist: 'Loveholic',
+        date: '2006.04.13',
+        category: '음악',
+        image: loveholic,
+      },
+
+      {
+        index: 114,
+        title: "No worries, I'm good",
+        artist: '민수',
+        date: '2022.12.02',
+        category: '음악',
+        image: minsu,
       },
     ],
     []
@@ -172,7 +174,7 @@ const LandingPage = () => {
     return map;
   }, [contentItems]);
 
-  const totalItems = 80;
+  const totalItems = 130;
 
   // 클라이언트 사이드에서만 사용할 수 있도록 수정
   const { x, y } = useMouse();
@@ -202,8 +204,8 @@ const LandingPage = () => {
     // 초기 설정
     handleResize();
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [isMounted]);
 
   // 카테고리 변경 핸들러
@@ -212,7 +214,7 @@ const LandingPage = () => {
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setCursorText("사랑하는");
+    setCursorText('사랑하는');
   }, []);
 
   // 그리드 아이템 메모이제이션
@@ -253,7 +255,7 @@ const LandingPage = () => {
 
       <motion.div
         className="absolute z-10"
-        initial={{ opacity: 0, translateY: "40px" }}
+        initial={{ opacity: 0, translateY: '40px' }}
         animate={{
           opacity: 1,
           translateY: 0,
@@ -279,7 +281,7 @@ const LandingPage = () => {
         }}
         initial={{ opacity: 0 }}
         transition={{
-          type: "spring",
+          type: 'spring',
           stiffness: prefersReducedMotion ? 2000 : 400,
           damping: prefersReducedMotion ? 500 : 300,
           mass: prefersReducedMotion ? 5 : 2,
