@@ -224,12 +224,12 @@ const MyProject = () => {
     >
       <div
         ref={containerRef}
-        className="flex flex-col flex-grow justify-between mt-8 mb-12"
+        className="flex flex-col flex-grow justify-center 2xl:justify-between mt-8 mb-12"
       >
-        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium">
+        <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium md:mb-14 lg:mb-18 xl:mb-24 2xl:mb-0">
           My Project
         </h2>
-        <div className="project-container flex">
+        <div className="project-container flex flex-col md:flex-row">
           {projects.map((project, index) => (
             <ProjectItem
               key={project.number}

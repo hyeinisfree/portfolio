@@ -51,7 +51,7 @@ const Skill: React.FC<SkillProps> = ({ stack, isOpen, toggleOpen }) => {
           id={`${stack.name}-details`}
           className="p-4 bg-white text-gray-700 border-t border-gray-300 rounded-b-lg"
         >
-          <ul className="list-disc list-inside space-y-1 text-sm md:text-base">
+          <ul className="list-disc list-inside space-y-1 text-xs md:text-sm lg:text-base">
             {stack.details.map((detail, idx) => (
               <li key={idx}>{detail}</li>
             ))}
