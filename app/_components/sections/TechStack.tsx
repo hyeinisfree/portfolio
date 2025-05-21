@@ -180,21 +180,30 @@ const TechStack = () => {
       <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-12">
         Tech Stack
       </h2>
-      {Object.entries(stacksByCategory).map(([category, stacks]) => (
-        <div key={category} className="mb-12">
-          <h3 className="text-2xl font-semibold mb-6">{category}</h3>
-          <div>
-            {stacks.map((stack) => (
-              <Skill
-                key={stack.name}
-                stack={stack}
-                isOpen={openSkill === stack.name}
-                toggleOpen={() => toggleSkill(stack.name)}
-              />
-            ))}
+      <div
+        className="
+          grid grid-cols-1
+          lg:grid-cols-2
+          xl:grid-cols-3
+          gap-x-10 gap-y-8
+        "
+      >
+        {Object.entries(stacksByCategory).map(([category, stacks]) => (
+          <div key={category} className="mb-0">
+            <h3 className="text-2xl font-medium mb-4">{category}</h3>
+            <div>
+              {stacks.map((stack) => (
+                <Skill
+                  key={stack.name}
+                  stack={stack}
+                  isOpen={openSkill === stack.name}
+                  toggleOpen={() => toggleSkill(stack.name)}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </section>
   );
 };
