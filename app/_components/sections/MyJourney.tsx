@@ -119,7 +119,9 @@ const MyJourney: React.FC = () => {
             </div>
           </div>
           <div className="career-year flex justify-end">
-            <h3 className="text-lg xl:text-3xl font-[450]">2018 - 2022</h3>
+            <h3 className="text-lg xl:text-3xl font-[450] text-right">
+              2018 - 2022
+            </h3>
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description pb-4 md:pb-0 col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
@@ -140,7 +142,9 @@ const MyJourney: React.FC = () => {
             </div>
           </div>
           <div className="career-year flex justify-end">
-            <h3 className="text-lg xl:text-3xl font-[450]">2022 - 2024</h3>
+            <h3 className="text-lg xl:text-3xl font-[450] text-right">
+              2022 - 2024
+            </h3>
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description pb-4 md:pb-0 col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
@@ -161,17 +165,11 @@ const MyJourney: React.FC = () => {
             </div>
           </div>
           <div className="career-year flex justify-end">
-            <h3 className="text-lg xl:text-3xl font-[450]">2022 - 2024</h3>
+            <h3 className="text-lg xl:text-3xl font-[450] text-right">NOW</h3>
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
-            <p>
-              잡플래닛의 채용 서비스 개발팀에서 Ruby on Rails 기반의 백엔드
-              엔지니어로 2년간 근무하며, SendGrid와 Braze를 활용한 CRM 기능
-              개선, Vue.js를 활용한 내부 어드민 페이지 개발, API 설계 및 성능
-              개선 등 다양한 업무를 담당했습니다. 비즈니스의 요구사항을 충족하는
-              효율적이고 안정적인 기능 개발에 기여하였습니다.
-            </p>
+            <p>어쩌구 저쩌구</p>
           </div>
         </div>
       </div>
