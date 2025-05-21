@@ -45,7 +45,7 @@ const ProjectItem = ({
         : isLast
         ? 'pr-0 pl-4 md:pl-8 2xl:pl-12'
         : 'px-4 md:px-8 2xl:px-12'
-    } w-[380px] md:min-w-[400px] 2xl:min-w-[480px] flex flex-col justify-between gap-4`}
+    } min-w-[380px] md:min-w-[400px] 2xl:min-w-[480px] flex flex-col justify-between gap-4`}
   >
     <div className="project-info flex flex-col gap-6 2xl:gap-10">
       <div className="project-title flex justify-between">
