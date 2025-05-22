@@ -19,8 +19,7 @@ interface ProjectItemProps {
   description: React.ReactNode;
   techStack: string;
   image: StaticImageData;
-  linkType: "github" | "website";
-  linkUrl: string;
+  links: { type: string; url: string }[];
   isFirst?: boolean;
   isLast?: boolean;
 }
@@ -32,8 +31,7 @@ const ProjectItem = ({
   description,
   techStack,
   image,
-  linkType,
-  linkUrl,
+  links,
 }: ProjectItemProps) => (
   <div
     className={`project-item min-w-full md:min-w-[340px] lg:min-w-[380px] xl:min-w-[420px] flex flex-col justify-between gap-4 pb-6 group`}
@@ -65,15 +63,20 @@ const ProjectItem = ({
     </div>
     <div className="project-image relative rounded-sm overflow-hidden hidden md:block">
       <Image src={image} alt={title} />
-      <a
-        href={linkUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="absolute bottom-2 right-4 bg-gray-800 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 translate-y-0 transition-all duration-300 flex items-center gap-1 shadow-md"
-      >
-        <span>{linkType === "github" ? "GitHub" : "Website"}</span>
-        <MdArrowOutward />
-      </a>
+      <div className="absolute bottom-2 right-4 flex flex-col gap-2">
+        {links.map((link, index) => (
+          <a
+            key={index}
+            href={link.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-800 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 translate-y-0 transition-all duration-300 flex items-center gap-1 shadow-md"
+          >
+            <span>{link.type === "github" ? "GitHub" : "Website"}</span>
+            <MdArrowOutward />
+          </a>
+        ))}
+      </div>
     </div>
   </div>
 );
@@ -122,35 +125,56 @@ const MyProject = () => {
       roles: ["Web, iOS", "Backend Developer"],
       description: (
         <div className="space-y-1">
-          <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
           <p>
-            정회원 인증, 게시판/게시글/댓글, 좋아요/스크랩, 포인트 및 티어 기능
-            등 다양한 기능을 제공합니다.
+            제철 음식을 공유하고 기록할 수 있는 아카이빙/커뮤니티 서비스입니다.
+          </p>
+          <p>
+            Spring Boot 기반의 REST API 서버와, Terraform/Flyway를 통해 인프라와
+            마이그레이션을 코드로 관리하는 인프라를 분리하여 설계했습니다.
+          </p>
+          <p>
+            EC2, RDS, S3 등 AWS 환경 위에 직접 인프라를 구성하고, Terraform으로
+            코드화했으며, Flyway 기반의 DB 마이그레이션 자동화 환경을
+            구축했습니다. GitHub Actions 기반의 CI/CD 파이프라인을
+            구성하였습니다.
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      techStack:
+        "Java, Spring Boot, MySQL, Flyway, Docker, GitHub Actions, Terraform, AWS EC2/RDS/S3/ECR",
       image: matdongsan,
-      linkType: "website",
-      linkUrl: "https://litt.ly/crystalmine",
+      links: [
+        {
+          type: "github",
+          url: "https://github.com/kira-matdongsan/Matdongsan-BE",
+        },
+      ],
     },
     {
       number: "02",
       title: "Hyein Kim",
-      roles: ["Web", "Design and Development"],
+      roles: ["Web", "Fullstack Developer"],
       description: (
         <div className="space-y-1">
-          <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
           <p>
-            정회원 인증, 게시판/게시글/댓글, 좋아요/스크랩, 포인트 및 티어 기능
-            등 다양한 기능을 제공합니다.
+            부드러운 인터랙션을 중심으로 설계한 개인 포트폴리오 사이트입니다.
+          </p>
+          <p>
+            Next.js App Router 기반의 구조로 구성하고, Framer Motion과 GSAP의
+            ScrollTrigger 기능을 활용해 섹션별 인터랙션과 애니메이션 효과를
+            구현했습니다. Lenis 기반의 스무스 스크롤, 섹션 고정 및 수평 이동
+            등의 효과를 통해 사용자에게 자연스러운 흐름과 몰입감 있는 경험을
+            제공하는 데 집중했습니다.
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      techStack:
+        "TypeScript, Next.js 15, Tailwind CSS 4, Framer Motion, GSAP, Vercel",
       image: hyeinkim,
-      linkType: "website",
-      linkUrl: "https://litt.ly/crystalmine",
+      links: [
+        { type: "github", url: "https://github.com/hyeinisfree/portfolio" },
+        { type: "website", url: "https://hyeinisfree.me" },
+      ],
     },
     {
       number: "03",
@@ -160,15 +184,19 @@ const MyProject = () => {
         <div className="space-y-1">
           <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
           <p>
-            정회원 인증, 게시판/게시글/댓글, 좋아요/스크랩, 포인트 및 티어 기능
-            등 다양한 기능을 제공합니다.
+            정회원 인증 시스템을 기반으로, 게시판/게시글/댓글, 좋아요 및 스크랩
+            기능, 포인트 기반의 티어 시스템 등 커뮤니티에 필요한 핵심 기능들을
+            설계하고 구현했습니다.
+          </p>
+          <p>
+            AWS 기반의 배포 환경과 CI/CD 자동화(Jenkins + Docker)도 직접
+            구축했습니다.
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, AWS EC2/RDS/S3, Jenkins, Docker",
+      techStack: "Java, Spring Boot, MySQL, Docker, Jenkins, AWS EC2/RDS/S3",
       image: sswu,
-      linkType: "website",
-      linkUrl: "https://litt.ly/crystalmine",
+      links: [{ type: "website", url: "https://litt.ly/crystalmine" }],
     },
     {
       number: "04",
@@ -182,17 +210,22 @@ const MyProject = () => {
           </p>
           <p>대학생을 위한 경험 정리 아카이빙 서비스입니다.</p>
           <p>
-            프로젝트와 페이지 구조, 태그를 이용한 경험 아카이빙 기능, 다른
-            사람들의 경험 둘러보기 기능, 좋아요 기능 등 다양한 기능을
-            제공합니다.
+            경험을 ‘프로젝트 {">"} 페이지’ 구조로 분류하여 정리할 수 있으며,
+            다른 사람의 경험을 탐색하고 좋아요로 반응할 수 있는 소셜 성격의
+            아카이빙 서비스입니다
+          </p>
+          <p>
+            NestJS 기반의 API 서버를 구축하고, GitHub Actions와 AWS CodeDeploy를
+            연동하여 배포 자동화 환경을 구성했습니다.
           </p>
         </div>
       ),
       techStack:
-        "Typescript, NestJS, MySQL, Github Actions, Docker, Swagger, AWS EC2/RDS/S3/CodeDeploy",
+        "Typescript, NestJS, MySQL, Swagger, Docker, Github Actions, AWS EC2/RDS/S3/CodeDeploy",
       image: storeasy,
-      linkType: "github",
-      linkUrl: "https://github.com/Storeasy/Storeasy-server",
+      links: [
+        { type: "github", url: "https://github.com/Storeasy/Storeasy-server" },
+      ],
     },
     {
       number: "05",
@@ -201,22 +234,26 @@ const MyProject = () => {
       description: (
         <div className="space-y-1">
           <p className="pb-2">🏆 2021 공개SW 개발자대회 출품작, 동상 수상</p>
+          <p>1인 가구를 위한 지역 기반 식품 및 생필품 나눔 플랫폼입니다.</p>
           <p>
-            1인 가구의 음식물 쓰레기, 생활 쓰레기를 줄이기 위한 식품 및 생필품
-            나누기 플랫폼 서비스입니다.
+            동네 인증, 실시간 채팅을 통한 거래 약속, 나눔 후 평가 시스템 등 신뢰
+            기반의 거래 흐름을 고려한 기능들을 기획하고 직접 구현했습니다.
           </p>
           <p>
-            동네 인증을 통한 동네별 나누기 기능, 채팅을 통한 거래 약속 생성
-            기능, 거래 진행 후 사용자 간의 평가 기능 등 다양한 기능을
-            제공합니다.
+            Spring Rest Docs를 활용해 API 문서를 작성하고, AWS EC2를 활용한 서버
+            운영을 담당했습니다.
           </p>
         </div>
       ),
       techStack:
         "Java, Spring Boot, Spring Rest Docs, MySQL, Redis, AWS EC2/RDS/S3, ",
       image: dingdong,
-      linkType: "github",
-      linkUrl: "https://github.com/Team-Dingdong/dingdong-server",
+      links: [
+        {
+          type: "github",
+          url: "https://github.com/Team-Dingdong/dingdong-server",
+        },
+      ],
     },
   ];
 
@@ -238,7 +275,7 @@ const MyProject = () => {
             <ProjectItem
               key={project.number}
               {...project}
-              linkType={project.linkType as "github" | "website"}
+              links={project.links}
             />
           ))}
         </div>
