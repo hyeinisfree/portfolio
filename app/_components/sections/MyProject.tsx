@@ -36,7 +36,7 @@ const ProjectItem = ({
   linkUrl,
 }: ProjectItemProps) => (
   <div
-    className={`project-item min-w-full md:min-w-[340px] lg:min-w-[380px] xl:min-w-[420px] flex flex-col justify-between gap-4 pb-6`}
+    className={`project-item min-w-full md:min-w-[340px] lg:min-w-[380px] xl:min-w-[420px] flex flex-col justify-between gap-4 pb-6 group`}
   >
     <div className="project-info flex flex-col gap-6 2xl:gap-10">
       <div className="project-title flex justify-between">
@@ -50,7 +50,7 @@ const ProjectItem = ({
               </p>
             ))}
           </div>
-          <div className="project-image relative group rounded-sm overflow-hidden md:hidden ml-3">
+          <div className="project-image relative rounded-sm overflow-hidden md:hidden ml-3">
             <Image src={image} alt={title} width={120} height={80} />
           </div>
         </div>
@@ -63,7 +63,7 @@ const ProjectItem = ({
         </div>
       </div>
     </div>
-    <div className="project-image relative group rounded-sm overflow-hidden hidden md:block">
+    <div className="project-image relative rounded-sm overflow-hidden hidden md:block">
       <Image src={image} alt={title} />
       <a
         href={linkUrl}
