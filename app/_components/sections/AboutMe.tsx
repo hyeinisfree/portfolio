@@ -82,7 +82,7 @@ const AboutMe = () => {
                 <span className="font-semibold">필요한 기술</span>, 내가 하고
                 싶은 개발보다{" "}
                 <span className="font-semibold">사람에게 닿는 개발</span>을 더
-                중요하게 생각해요.
+                중요하게 생각합니다.
               </p>
               <p>
                 백엔드 개발자로서 Ruby on Rails와 Spring Boot 기반의 웹 서비스를
