@@ -1,8 +1,8 @@
-'use client';
-import { useRef, useState, useLayoutEffect } from 'react';
-import Image from 'next/image';
-import profile from '@/public/images/hyein.jpg';
-import { motion } from 'framer-motion';
+"use client";
+import { useRef, useState, useLayoutEffect } from "react";
+import Image from "next/image";
+import profile from "@/public/images/hyein.jpg";
+import { motion } from "framer-motion";
 
 const AboutMe = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -10,7 +10,7 @@ const AboutMe = () => {
   const innerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (!window.matchMedia('(min-width: 768px)').matches) return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
     if (!imgRef.current) return;
 
     const resizeObserver = new ResizeObserver((entries) => {
@@ -27,7 +27,7 @@ const AboutMe = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!window.matchMedia('(min-width: 768px)').matches) return;
+    if (!window.matchMedia("(min-width: 768px)").matches) return;
     if (imageHeight === undefined) return;
 
     const inner = innerRef.current;
@@ -75,28 +75,37 @@ const AboutMe = () => {
           <div className="font-arita text-sm lg:text-base xl:text-lg">
             <div className="space-y-2 xl:space-y-4">
               <p>
-                안녕하세요, 기본을 탄탄하게 다지며 성장하는 백엔드 개발자
+                안녕하세요, 사람을 위한 기술을 고민하는 백엔드 엔지니어
                 김혜인입니다.
+                <br />
+                좋아 보이는 기술보다{" "}
+                <span className="font-semibold">필요한 기술</span>, 내가 하고
+                싶은 개발보다{" "}
+                <span className="font-semibold">사람에게 닿는 개발</span>을 더
+                중요하게 생각해요.
               </p>
               <p>
-                지난 2년간 Ruby on Rails 기반의 서비스 회사에서 백엔드 개발을
-                담당하며, 안정적이고 확장 가능한 서비스 구축을 위해
-                노력해왔습니다. 단순히 기능을 구현하는 것을 넘어 제품에 대한
-                이해를 바탕으로 더 나은 방향을 제시하는 개발자가 되고자 합니다.
+                백엔드 개발자로서 Ruby on Rails와 Spring Boot 기반의 웹 서비스를
+                구축해왔으며,
+                <br />
+                다양한 협업 환경에서 기획자, 디자이너, QA와 함께{" "}
+                <span className="font-semibold">
+                  문제 해결 중심의 개발
+                </span>{" "}
+                문화를 경험해왔습니다.
               </p>
               <p>
-                백엔드 개발자로서 더 좋은 서비스를 만들기 위해 네트워크,
-                리눅스와 같은 시스템 및 인프라 기술을 꾸준히 학습하고 있으며,
-                프론트엔드 영역에도 관심을 가져 React와 Next.js 기반의
-                프로젝트를 진행하고 있습니다. 이러한 기술적 확장을 통해 서비스
-                전체 구조를 이해하고 팀과 더 원활하게 소통하는 개발자가 되고자
-                합니다.
+                최근에는 DevOps와 클라우드 인프라 영역에 깊이 있는 관심을 가지고
+                학습 중이며,
+                <br />
+                Linux, Network, AWS, Terraform을 중심으로{" "}
+                <span className="font-semibold">서비스 운영 전반</span>에 대한
+                이해를 넓혀가고 있습니다.
               </p>
               <p>
-                항상 질문을 통해 더 좋은 방법을 찾고, 협업 과정에서의 친절함과
-                책임감을 가장 중요하게 생각합니다. 단순히 코드를 작성하는 것이
-                아니라, 제품과 사람을 연결하는 따뜻한 서비스를 만드는 개발자를
-                꿈꿉니다.
+                <span className="font-semibold">함께 일하고 싶은 개발자</span>가
+                되는 것을 목표로 합니다. 변화에 유연하고, 배움에 열려 있으며,
+                협업과 커뮤니케이션을 소중히 여깁니다.
               </p>
             </div>
           </div>

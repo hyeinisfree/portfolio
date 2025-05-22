@@ -1,7 +1,7 @@
-'use client';
-import { useRef, useEffect } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+"use client";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,16 +24,16 @@ const MyJourney: React.FC = () => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: careerSectionRef.current,
-        start: 'top 55%',
-        end: 'bottom 90%',
+        start: "top 55%",
+        end: "bottom 90%",
         scrub: true,
       },
     });
 
     // 타임라인 높이 애니메이션
     timeline.to(timelineRef.current, {
-      height: '100%',
-      ease: 'none',
+      height: "100%",
+      ease: "none",
     });
 
     // 타임라인 점 애니메이션
@@ -41,7 +41,7 @@ const MyJourney: React.FC = () => {
       timelineDotRef.current,
       {
         opacity: 1,
-        ease: 'power4.out',
+        ease: "power4.out",
       },
       0
     );
@@ -49,9 +49,9 @@ const MyJourney: React.FC = () => {
     timeline.to(
       timelineDotRef.current,
       {
-        top: '100%',
-        ease: 'none',
-        transformOrigin: 'center',
+        top: "100%",
+        ease: "none",
+        transformOrigin: "center",
       },
       0
     );
@@ -60,8 +60,8 @@ const MyJourney: React.FC = () => {
     timeline.to(
       maskRef.current,
       {
-        height: '0%',
-        ease: 'none',
+        height: "0%",
+        ease: "none",
       },
       0
     );
@@ -87,8 +87,8 @@ const MyJourney: React.FC = () => {
             ref={timelineRef}
             className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-[#A0F4B0] z-20"
             style={{
-              height: '0%',
-              position: 'absolute',
+              height: "0%",
+              position: "absolute",
               top: 0,
             }}
           ></div>
@@ -103,15 +103,15 @@ const MyJourney: React.FC = () => {
             ref={maskRef}
             className="career-mask absolute inset-x-0 mx-auto z-10"
             style={{
-              height: '130%',
-              width: '100%',
-              position: 'absolute',
+              height: "130%",
+              width: "100%",
+              position: "absolute",
               bottom: 0,
             }}
           ></div>
         </div>
 
-        <div className="career-item grid grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr_0.8fr_3fr] grid-rows-[auto_auto] gap-y-1.5 md:gap-y-12">
+        <div className="career-item grid grid-cols-[2fr_1fr] md:grid-cols-[2fr_1fr_0.8fr_3fr] grid-rows-[auto_auto] gap-y-1.5 md:gap-y-12 items-center">
           <div className="career-role">
             <div className="flex flex-col md:gap-1.5">
               <h4 className="text-xl xl:text-3xl font-medium">컴퓨터공학과</h4>
@@ -150,18 +150,17 @@ const MyJourney: React.FC = () => {
           <div className="career-description pb-4 md:pb-0 col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
             <p>
               잡플래닛의 채용 서비스 개발팀에서 Ruby on Rails 기반의 백엔드
-              엔지니어로 2년간 근무하며, SendGrid와 Braze를 활용한 CRM 기능
-              개선, Vue.js를 활용한 내부 어드민 페이지 개발, API 설계 및 성능
-              개선 등 다양한 업무를 담당했습니다. 비즈니스의 요구사항을 충족하는
-              효율적이고 안정적인 기능 개발에 기여하였습니다.
+              엔지니어로 근무하며, CRM 기능 고도화(SendGrid, Braze 연동),
+              Vue.js를 활용한 내부 어드민 페이지 개발, 채용 공고 구조 리팩토링,
+              API 설계 및 성능 개선 등 다양한 업무를 담당했습니다.
             </p>
           </div>
-          <div className="career-role">
+          {/* <div className="career-role">
             <div className="flex flex-col md:gap-1.5">
               <h4 className="text-xl xl:text-3xl font-medium">
-                Backend Engineer
+                Transition & Growth
               </h4>
-              <h5 className="text-md xl:text-xl">잡플래닛</h5>
+              <h5 className="text-md xl:text-xl">DevOps</h5>
             </div>
           </div>
           <div className="career-year flex justify-end">
@@ -169,8 +168,15 @@ const MyJourney: React.FC = () => {
           </div>
           <div className="career-blank hidden md:block"></div>
           <div className="career-description col-span-2 md:col-start-4 md:col-span-1 text-sm xl:text-base font-pretendard">
-            <p>어쩌구 저쩌구</p>
-          </div>
+            <p>
+              개발자로서의 다음 단계에 대해 깊이 고민하며 DevOps와 인프라 영역에
+              도전하고 있습니다. Linux, 네트워크, AWS, Terraform 등 시스템과
+              클라우드 환경에 대한 이해를 넓히며, 개발을 넘어 서비스의 운영과
+              안정성까지 책임지는 개발자로 성장하고자 합니다. 이 과정에서
+              포트폴리오 사이트를 직접 디자인하고 개발했으며, 꾸준히 학습하고,
+              직접 만들어보며 스스로를 단단하게 만들어가는 중입니다.
+            </p>
+          </div> */}
         </div>
       </div>
     </section>
