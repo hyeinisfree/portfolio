@@ -203,7 +203,10 @@ const TechStack = () => {
   };
 
   return (
-    <section id="tech-stack" className="flex flex-col font-clash py-20">
+    <section
+      id="tech-stack"
+      className="flex flex-col justify-center font-clash"
+    >
       <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-4 md:mb-8 xl:mb-12">
         Tech Stack
       </h2>
