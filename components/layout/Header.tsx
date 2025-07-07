@@ -1,17 +1,17 @@
 'use client';
 
 import Link from 'next/link';
-// import { usePathname } from "next/navigation";
+import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
 
 const Header = () => {
-  // const pathname = usePathname();
+  const pathname = usePathname();
 
-  // const navItems = [
-  //   { name: "ABOUT", path: "/" },
-  //   { name: "PROJECT", path: "/projects" },
-  //   { name: "BLOG", path: "/blog" },
-  // ];
+  const navItems = [
+    { name: 'ABOUT', path: '/#about-me' },
+    { name: 'PROJECT', path: '/projects' },
+    { name: 'BLOG', path: '/blog' },
+  ];
 
   return (
     <motion.header className="sticky top-0 left-0 right-0 z-50 font-clash bg-white flex items-center h-18">
@@ -22,18 +22,18 @@ const Header = () => {
           </Link>
           <div className="hidden md:block">
             <nav className="flex space-x-8 text-base">
-              {/* {navItems.map((item) => (
-              <Link
-                key={item.path}
-                href={item.path}
-                className={`text-md font-medium transition-colors hover:text-gray-900 ${
-                  pathname === item.path ? "text-gray-900" : "text-gray-500"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))} */}
-              <div>
+              {navItems.map((item) => (
+                <Link
+                  key={item.path}
+                  href={item.path}
+                  className={`transition-colors hover:text-gray-900 ${
+                    pathname === item.path ? 'text-gray-900' : 'text-gray-500'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              {/* <div>
                 <a
                   href="mailto:hyeinsfree.dev@gmail.come"
                   className="text-gray-500 hover:text-gray-900"
@@ -70,7 +70,7 @@ const Header = () => {
                 >
                   BLOG
                 </a>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>
