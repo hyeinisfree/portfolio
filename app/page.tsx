@@ -48,7 +48,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-white">
       <div className="cursor-none h-screen">
         <LandingPage />
       </div>

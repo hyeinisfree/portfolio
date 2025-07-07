@@ -10,6 +10,7 @@ import {
   wish,
   jaram,
 } from "@/lib/fonts";
+import DevBreakpointIndicator from "@/components/breakpoint-indicator";
 
 export const metadata: Metadata = {
   title: "Hyeinisfree",
@@ -26,7 +27,10 @@ export default function RootLayout({
       lang="ko"
       className={`${clash.variable} ${pretendard.variable} ${arita.variable} ${yoonwoo.variable} ${wish.variable} ${jaram.variable} ${geistSans.variable} ${geistMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <DevBreakpointIndicator />
+      </body>
     </html>
   );
 }

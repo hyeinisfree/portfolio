@@ -1,8 +1,8 @@
-"use client";
-import { useRef, useState, useLayoutEffect } from "react";
-import Image from "next/image";
-import profile from "@/public/images/hyein.jpg";
-import { motion } from "framer-motion";
+'use client';
+import { useRef, useState, useLayoutEffect } from 'react';
+import Image from 'next/image';
+import profile from '@/public/images/hyein.jpg';
+import { motion } from 'framer-motion';
 
 const AboutMe = () => {
   const imgRef = useRef<HTMLImageElement>(null);
@@ -10,7 +10,7 @@ const AboutMe = () => {
   const innerRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    if (!window.matchMedia("(min-width: 768px)").matches) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
     if (!imgRef.current) return;
 
     const resizeObserver = new ResizeObserver((entries) => {
@@ -27,7 +27,7 @@ const AboutMe = () => {
   }, []);
 
   useLayoutEffect(() => {
-    if (!window.matchMedia("(min-width: 768px)").matches) return;
+    if (!window.matchMedia('(min-width: 768px)').matches) return;
     if (imageHeight === undefined) return;
 
     const inner = innerRef.current;
@@ -41,7 +41,7 @@ const AboutMe = () => {
   return (
     <section
       id="about-me"
-      className="flex justify-center items-center font-clash"
+      className="flex justify-center items-center font-clash min-h-[calc(100vh-var(--header-height))]"
     >
       <motion.div
         className="about-me-container flex gap-4 md:gap-8 xl:gap-12 items-stretch"
@@ -78,9 +78,9 @@ const AboutMe = () => {
                 안녕하세요, 사람을 위한 기술을 고민하는 백엔드 엔지니어
                 김혜인입니다.
                 <br />
-                좋아 보이는 기술보다{" "}
+                좋아 보이는 기술보다{' '}
                 <span className="font-semibold">필요한 기술</span>, 내가 하고
-                싶은 개발보다{" "}
+                싶은 개발보다{' '}
                 <span className="font-semibold">사람에게 닿는 개발</span>을 더
                 중요하게 생각합니다.
               </p>
@@ -88,17 +88,17 @@ const AboutMe = () => {
                 백엔드 개발자로서 Ruby on Rails와 Spring Boot 기반의 웹 서비스를
                 구축해왔으며,
                 <br />
-                다양한 협업 환경에서 기획자, 디자이너, QA와 함께{" "}
+                다양한 협업 환경에서 기획자, 디자이너, QA와 함께{' '}
                 <span className="font-semibold">
                   문제 해결 중심의 개발
-                </span>{" "}
+                </span>{' '}
                 문화를 경험해왔습니다.
               </p>
               <p>
                 최근에는 DevOps와 클라우드 인프라 영역에 깊이 있는 관심을 가지고
                 학습 중이며,
                 <br />
-                Linux, Network, AWS, Terraform을 중심으로{" "}
+                Linux, Network, AWS, Terraform을 중심으로{' '}
                 <span className="font-semibold">서비스 운영 전반</span>에 대한
                 이해를 넓혀가고 있습니다.
               </p>

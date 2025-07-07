@@ -1,7 +1,7 @@
-"use client";
-import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+'use client';
+import { useRef, useEffect } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -24,16 +24,16 @@ const MyJourney: React.FC = () => {
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: careerSectionRef.current,
-        start: "top 55%",
-        end: "bottom 90%",
+        start: 'top 55%',
+        end: 'bottom 90%',
         scrub: true,
       },
     });
 
     // 타임라인 높이 애니메이션
     timeline.to(timelineRef.current, {
-      height: "100%",
-      ease: "none",
+      height: '100%',
+      ease: 'none',
     });
 
     // 타임라인 점 애니메이션
@@ -41,7 +41,7 @@ const MyJourney: React.FC = () => {
       timelineDotRef.current,
       {
         opacity: 1,
-        ease: "power4.out",
+        ease: 'power4.out',
       },
       0
     );
@@ -49,9 +49,9 @@ const MyJourney: React.FC = () => {
     timeline.to(
       timelineDotRef.current,
       {
-        top: "100%",
-        ease: "none",
-        transformOrigin: "center",
+        top: '100%',
+        ease: 'none',
+        transformOrigin: 'center',
       },
       0
     );
@@ -60,8 +60,8 @@ const MyJourney: React.FC = () => {
     timeline.to(
       maskRef.current,
       {
-        height: "0%",
-        ease: "none",
+        height: '0%',
+        ease: 'none',
       },
       0
     );
@@ -76,7 +76,7 @@ const MyJourney: React.FC = () => {
     <section
       ref={careerSectionRef}
       id="my-career-experience"
-      className="flex flex-col justify-center font-clash"
+      className="flex flex-col justify-center font-clash min-h-[calc(100vh-var(--header-height))]"
     >
       <h2 className="text-4xl xl:text-5xl 2xl:text-6xl font-medium mb-8 md:mb-12 xl:mb-18 2xl:mb-24">
         My Journey
@@ -87,8 +87,8 @@ const MyJourney: React.FC = () => {
             ref={timelineRef}
             className="career-timeline absolute inset-x-0 mx-auto w-1 bg-gradient-to-b from-white to-[#A0F4B0] z-20"
             style={{
-              height: "0%",
-              position: "absolute",
+              height: '0%',
+              position: 'absolute',
               top: 0,
             }}
           ></div>
@@ -103,9 +103,9 @@ const MyJourney: React.FC = () => {
             ref={maskRef}
             className="career-mask absolute inset-x-0 mx-auto z-10"
             style={{
-              height: "130%",
-              width: "100%",
-              position: "absolute",
+              height: '130%',
+              width: '100%',
+              position: 'absolute',
               bottom: 0,
             }}
           ></div>
