@@ -1,14 +1,14 @@
-"use client";
-import { useRef, useLayoutEffect } from "react";
-import Image, { StaticImageData } from "next/image";
-import matdongsan from "@/public/images/matdongsan.webp";
-import hyeinkim from "@/public/images/hyeinkim.webp";
-import sswu from "@/public/images/sswu.jpg";
-import storeasy from "@/public/images/storeasy.jpg";
-import dingdong from "@/public/images/dingdong.jpg";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { MdArrowOutward } from "react-icons/md";
+'use client';
+import { useRef, useLayoutEffect } from 'react';
+import Image, { StaticImageData } from 'next/image';
+import matdongsan from '@/public/images/matdongsan.webp';
+import hyeinkim from '@/public/images/hyeinkim.webp';
+import sswu from '@/public/images/sswu.jpg';
+import storeasy from '@/public/images/storeasy.jpg';
+import dingdong from '@/public/images/dingdong.jpg';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { MdArrowOutward } from 'react-icons/md';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +72,7 @@ const ProjectItem = ({
             rel="noopener noreferrer"
             className="bg-gray-800 text-white px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 translate-y-0 transition-all duration-300 flex items-center gap-1 shadow-md"
           >
-            <span>{link.type === "github" ? "GitHub" : "Website"}</span>
+            <span>{link.type === 'github' ? 'GitHub' : 'Website'}</span>
             <MdArrowOutward />
           </a>
         ))}
@@ -88,7 +88,7 @@ const MyProject = () => {
   useLayoutEffect(() => {
     const mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
+    mm.add('(min-width: 768px)', () => {
       const section = projectSectionRef.current;
       const container = containerRef.current;
       if (!section || !container) return;
@@ -97,13 +97,13 @@ const MyProject = () => {
       section.style.marginBottom = `${reserveSpace}px`;
       const overflowWidth = container.scrollWidth - section.clientWidth;
 
-      const items = container.querySelectorAll(".project-item");
+      const items = container.querySelectorAll('.project-item');
       const st = gsap.to(items, {
         x: -overflowWidth,
         scrollTrigger: {
           trigger: section,
-          start: "top top+=72px",
-          end: "bottom top+=72px",
+          start: 'top top+=72px',
+          end: 'bottom top+=72px',
           pin: true,
           scrub: true,
         },
@@ -111,7 +111,7 @@ const MyProject = () => {
 
       return () => {
         st.kill();
-        section.style.marginBottom = "";
+        section.style.marginBottom = '';
       };
     });
 
@@ -120,9 +120,9 @@ const MyProject = () => {
 
   const projects = [
     {
-      number: "01",
-      title: "맛동산",
-      roles: ["Web, iOS", "Backend Developer"],
+      number: '01',
+      title: '맛동산',
+      roles: ['Web, iOS', 'Backend Developer'],
       description: (
         <div className="space-y-1">
           <p>
@@ -141,19 +141,19 @@ const MyProject = () => {
         </div>
       ),
       techStack:
-        "Java, Spring Boot, MySQL, Flyway, Docker, GitHub Actions, Terraform, AWS EC2/RDS/S3/ECR",
+        'Java, Spring Boot, MySQL, Flyway, Docker, GitHub Actions, Terraform, AWS EC2/RDS/S3/ECR',
       image: matdongsan,
       links: [
         {
-          type: "github",
-          url: "https://github.com/kira-matdongsan/Matdongsan-BE",
+          type: 'github',
+          url: 'https://github.com/kira-matdongsan/Matdongsan-BE',
         },
       ],
     },
     {
-      number: "02",
-      title: "Hyein Kim",
-      roles: ["Web", "Fullstack Developer"],
+      number: '02',
+      title: 'Hyein Kim',
+      roles: ['Web', 'Fullstack Developer'],
       description: (
         <div className="space-y-1">
           <p>
@@ -169,17 +169,17 @@ const MyProject = () => {
         </div>
       ),
       techStack:
-        "TypeScript, Next.js 15, Tailwind CSS 4, Framer Motion, GSAP, Vercel",
+        'TypeScript, Next.js 15, Tailwind CSS 4, Framer Motion, GSAP, Vercel',
       image: hyeinkim,
       links: [
-        { type: "github", url: "https://github.com/hyeinisfree/portfolio" },
-        { type: "website", url: "https://hyeinisfree.me" },
+        { type: 'github', url: 'https://github.com/hyeinisfree/portfolio' },
+        { type: 'website', url: 'https://hyeinisfree.me' },
       ],
     },
     {
-      number: "03",
-      title: "수정광산",
-      roles: ["Web, iOS, Android", "Backend Team Leader / Developer"],
+      number: '03',
+      title: '수정광산',
+      roles: ['Web, iOS, Android', 'Backend Team Leader / Developer'],
       description: (
         <div className="space-y-1">
           <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
@@ -194,14 +194,14 @@ const MyProject = () => {
           </p>
         </div>
       ),
-      techStack: "Java, Spring Boot, MySQL, Docker, Jenkins, AWS EC2/RDS/S3",
+      techStack: 'Java, Spring Boot, MySQL, Docker, Jenkins, AWS EC2/RDS/S3',
       image: sswu,
-      links: [{ type: "website", url: "https://litt.ly/crystalmine" }],
+      links: [{ type: 'website', url: 'https://litt.ly/crystalmine' }],
     },
     {
-      number: "04",
-      title: "스토리지",
-      roles: ["iOS", "Backend Developer"],
+      number: '04',
+      title: '스토리지',
+      roles: ['iOS', 'Backend Developer'],
       description: (
         <div className="space-y-1">
           <p className="pb-2">
@@ -210,7 +210,7 @@ const MyProject = () => {
           </p>
           <p>대학생을 위한 경험 정리 아카이빙 서비스입니다.</p>
           <p>
-            경험을 ‘프로젝트 {">"} 페이지’ 구조로 분류하여 정리할 수 있으며,
+            경험을 ‘프로젝트 {'>'} 페이지’ 구조로 분류하여 정리할 수 있으며,
             다른 사람의 경험을 탐색하고 좋아요로 반응할 수 있는 소셜 성격의
             아카이빙 서비스입니다
           </p>
@@ -221,16 +221,16 @@ const MyProject = () => {
         </div>
       ),
       techStack:
-        "Typescript, NestJS, MySQL, Swagger, Docker, Github Actions, AWS EC2/RDS/S3/CodeDeploy",
+        'Typescript, NestJS, MySQL, Swagger, Docker, Github Actions, AWS EC2/RDS/S3/CodeDeploy',
       image: storeasy,
       links: [
-        { type: "github", url: "https://github.com/Storeasy/Storeasy-server" },
+        { type: 'github', url: 'https://github.com/Storeasy/Storeasy-server' },
       ],
     },
     {
-      number: "05",
-      title: "띵-동",
-      roles: ["Android", "Team Leader / Backend Developer"],
+      number: '05',
+      title: '띵-동',
+      roles: ['Android', 'Team Leader / Backend Developer'],
       description: (
         <div className="space-y-1">
           <p className="pb-2">🏆 2021 공개SW 개발자대회 출품작, 동상 수상</p>
@@ -246,12 +246,12 @@ const MyProject = () => {
         </div>
       ),
       techStack:
-        "Java, Spring Boot, Spring Rest Docs, MySQL, Redis, AWS EC2/RDS/S3, ",
+        'Java, Spring Boot, Spring Rest Docs, MySQL, Redis, AWS EC2/RDS/S3, ',
       image: dingdong,
       links: [
         {
-          type: "github",
-          url: "https://github.com/Team-Dingdong/dingdong-server",
+          type: 'github',
+          url: 'https://github.com/Team-Dingdong/dingdong-server',
         },
       ],
     },
@@ -261,7 +261,7 @@ const MyProject = () => {
     <section
       id="my-project"
       ref={projectSectionRef}
-      className="font-clash flex flex-col justify-center"
+      className="font-clash flex flex-col justify-center min-h-[calc(100vh-var(--header-height))]"
     >
       <div
         ref={containerRef}

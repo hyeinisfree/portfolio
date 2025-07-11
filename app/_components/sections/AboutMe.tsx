@@ -41,7 +41,7 @@ const AboutMe = () => {
   return (
     <section
       id="about-me"
-      className="flex justify-center items-center font-clash"
+      className="flex justify-center items-center font-clash min-h-[calc(100vh-var(--header-height))]"
     >
       <motion.div
         className="about-me-container flex gap-4 md:gap-8 xl:gap-12 items-stretch"
