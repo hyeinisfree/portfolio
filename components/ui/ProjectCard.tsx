@@ -1,8 +1,8 @@
-import Image from "next/image";
-import { Badge } from "@/components/ui/badge"; // shadcn/ui의 Badge 사용
-import { TrophyIcon, Calendar, ContactRound } from "lucide-react"; // lucide-react에서 아이콘 사용
-import Link from "next/link";
-import { Project } from "@/data/types/content";
+import Image from 'next/image';
+import { Badge } from '@/components/ui/badge'; // shadcn/ui의 Badge 사용
+import { TrophyIcon, Globe, Calendar, ContactRound } from 'lucide-react'; // lucide-react에서 아이콘 사용
+import Link from 'next/link';
+import { Project } from '@/data/types/content';
 
 export interface ProjectCardProps extends Project {
   href: string;
@@ -27,7 +27,7 @@ export const ProjectCard = ({ href, ...project }: ProjectCardProps) => {
       {/* Content */}
       <div className="flex flex-1 flex-col gap-2.5 p-4">
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-2 text-base font-medium md:text-lg 2xl:text-xl">
+          <div className="flex items-center gap-1.5 text-base font-medium md:text-lg 2xl:text-xl">
             <Image
               src={project.icon}
               alt={project.title}
@@ -35,7 +35,7 @@ export const ProjectCard = ({ href, ...project }: ProjectCardProps) => {
               height={16}
               className="size-4 object-cover"
             />
-            <span>{project.title}</span>
+            <span className="font-medium">{project.title}</span>
           </div>
           <p className="text-sm text-gray-600 2xl:text-base">
             {project.description}
@@ -44,19 +44,25 @@ export const ProjectCard = ({ href, ...project }: ProjectCardProps) => {
 
         <div className="flex flex-col gap-1 text-xs 2xl:text-sm mb-1">
           {project.award && (
-            <div className="flex items-center gap-1.5">
-              <TrophyIcon className="size-3.5" />
+            <div className="flex items-center gap-1.5 ">
+              <TrophyIcon className="size-3.5" strokeWidth={1.5} />
               <p>{project.award}</p>
             </div>
           )}
-          <div className="flex items-center gap-1.5">
-            <ContactRound className="size-3.5" />
-            <p>{project.role.join(", ")}</p>
+          <div className="flex items-center gap-1.5 font-clash">
+            <Globe className="size-3.5" strokeWidth={1.5} />
+            <p>{project.platform.join(', ')}</p>
           </div>
-          <div className="flex items-center gap-1.5">
-            <Calendar className="size-3.5" />
+          <div className="flex items-center gap-1.5 font-clash">
+            <ContactRound className="size-3.5" strokeWidth={1.5} />
+            <p>{project.role.join(', ')}</p>
+          </div>
+          <div className="flex items-center gap-1.5 font-clash">
+            <Calendar className="size-3.5" strokeWidth={1.5} />
             <p>
-              {project.startDate} → {project.endDate}
+              {project.startDate}
+              {project.endDate ? ' → ' : ''}
+              {project.endDate}
             </p>
           </div>
         </div>
@@ -66,7 +72,7 @@ export const ProjectCard = ({ href, ...project }: ProjectCardProps) => {
             <Badge
               key={tech}
               variant="secondary"
-              className="px-2 py-0.5 text-[0.7rem] font-normal"
+              className="px-2 py-0.5 font-normal"
             >
               {tech}
             </Badge>

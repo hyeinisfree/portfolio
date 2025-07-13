@@ -7,7 +7,7 @@ interface LayoutProps {
 
 const RouteGroupLayout = ({ children }: LayoutProps) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-grow">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col">
