@@ -1,4 +1,5 @@
-import { StaticImageData } from 'next/image';
+import { StaticImageData } from "next/image";
+import { IconType } from "react-icons";
 
 export interface Experience {
   title: string;
@@ -28,4 +29,11 @@ export interface Project {
   growExperience: Experience[];
   award?: string;
   links?: { type: string; url: string }[];
+}
+
+export interface Skill {
+  name: string;
+  icon: IconType;
+  color: string;
+  details: string[];
 }
