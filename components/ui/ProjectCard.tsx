@@ -55,7 +55,7 @@ export const ProjectCard = ({ href, ...project }: ProjectCardProps) => {
           </div>
           <div className="flex items-center gap-1.5 font-clash">
             <ContactRound className="size-3.5" strokeWidth={1.5} />
-            <p>{project.role.join(', ')}</p>
+            <p>{project.roles.join(', ')}</p>
           </div>
           <div className="flex items-center gap-1.5 font-clash">
             <Calendar className="size-3.5" strokeWidth={1.5} />

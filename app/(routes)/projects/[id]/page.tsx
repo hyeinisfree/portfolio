@@ -144,7 +144,7 @@ export default function ProjectDetailPage({
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-0">
           <InfoBlock Icon={ContactRound} title="담당 역할">
             <ul className="list-disc px-4 space-y-1 font-clash">
-              {project.role.map((role, index) => (
+              {project.roles.map((role, index) => (
                 <li key={index}>{role}</li>
               ))}
             </ul>

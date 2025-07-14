@@ -15,11 +15,12 @@ export interface Project {
   team: string[];
   platform: string[];
   position: string;
-  role: string[];
+  roles: string[];
   color: string;
   image: StaticImageData;
   thumbnail: StaticImageData;
   icon: StaticImageData;
+  simpleIntroduction: React.ReactNode;
   introduction: React.ReactNode;
   techStack: string[];
   detailTechStack: string[];

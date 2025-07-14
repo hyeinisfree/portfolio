@@ -23,11 +23,27 @@ export const ProjectData: Project[] = [
     team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명'],
     platform: ['Web', 'iOS'],
     position: 'Backend',
-    role: ['Backend Developer'],
+    roles: ['Backend Developer'],
     color: '#FBE56A',
     image: matdongsan,
     thumbnail: matdongsan,
     icon: i_matdongsan,
+    simpleIntroduction: (
+      <div className="space-y-1">
+        <p>
+          제철 음식을 공유하고 기록할 수 있는 아카이빙/커뮤니티 서비스입니다.
+        </p>
+        <p>
+          Spring Boot 기반의 REST API 서버와, Terraform/Flyway를 통해 인프라와
+          마이그레이션을 코드로 관리하는 인프라를 분리하여 설계했습니다.
+        </p>
+        <p>
+          EC2, RDS, S3 등 AWS 환경 위에 직접 인프라를 구성하고, Terraform으로
+          코드화했으며, Flyway 기반의 DB 마이그레이션 자동화 환경을
+          구축했습니다. GitHub Actions 기반의 CI/CD 파이프라인을 구성하였습니다.
+        </p>
+      </div>
+    ),
     introduction: (
       <div>
         제철 음식을 공유하고 기록할 수 있는 아카이빙/커뮤니티 서비스입니다.
@@ -41,7 +57,7 @@ export const ProjectData: Project[] = [
       'Docker',
       'GitHub Actions',
       'Terraform',
-      'AWS EC2/RDS/S3/RDS',
+      'AWS EC2/RDS/S3/ECR',
     ],
     detailTechStack: [
       'Java',
@@ -92,11 +108,23 @@ export const ProjectData: Project[] = [
     team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명'],
     platform: ['Web'],
     position: 'Frontend',
-    role: ['Frontend Developer'],
+    roles: ['Frontend Developer'],
     color: '#798088',
     image: hyeinkim,
     thumbnail: hyeinkim,
     icon: i_hyeinkim,
+    simpleIntroduction: (
+      <div className="space-y-1">
+        <p>부드러운 인터랙션을 중심으로 설계한 개인 포트폴리오 사이트입니다.</p>
+        <p>
+          Next.js App Router 기반의 구조로 구성하고, Framer Motion과 GSAP의
+          ScrollTrigger 기능을 활용해 섹션별 인터랙션과 애니메이션 효과를
+          구현했습니다. Lenis 기반의 스무스 스크롤, 섹션 고정 및 수평 이동 등의
+          효과를 통해 사용자에게 자연스러운 흐름과 몰입감 있는 경험을 제공하는
+          데 집중했습니다.
+        </p>
+      </div>
+    ),
     introduction: <div></div>,
     techStack: [
       'TypeScript',
@@ -145,23 +173,29 @@ export const ProjectData: Project[] = [
     description: '성신여자대학교 커뮤니티 서비스',
     startDate: '2021/05',
     endDate: '2022/09',
+    year: [2022],
     image: sswu,
     thumbnail: s_sswu,
-    position: 'Backend',
-    techStack: [
-      'Java',
-      'SpringBoot',
-      'MySQL',
-      'Docker',
-      'Jenkins',
-      'AWS EC2/RDS/S3',
-    ],
     icon: i_sswu,
-    year: [2022],
-    platform: ['iOS, Android'],
-    role: ['Backend Team Leader', 'Backend Developer'],
+    position: 'Backend',
+    roles: ['Backend Team Leader', 'Backend Developer'],
+    platform: ['iOS', 'Android'],
     color: '#A055FE',
     team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명'],
+    simpleIntroduction: (
+      <div className="space-y-1">
+        <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
+        <p>
+          정회원 인증 시스템을 기반으로, 게시판/게시글/댓글, 좋아요 및 스크랩
+          기능, 포인트 기반의 티어 시스템 등 커뮤니티에 필요한 핵심 기능들을
+          설계하고 구현했습니다.
+        </p>
+        <p>
+          AWS 기반의 배포 환경과 CI/CD 자동화(Jenkins + Docker)도 직접
+          구축했습니다.
+        </p>
+      </div>
+    ),
     introduction: (
       <div className="flex flex-col gap-1">
         <span className="flex">
@@ -179,6 +213,14 @@ export const ProjectData: Project[] = [
         </ol>
       </div>
     ),
+    techStack: [
+      'Java',
+      'SpringBoot',
+      'MySQL',
+      'Docker',
+      'Jenkins',
+      'AWS EC2/RDS/S3',
+    ],
     detailTechStack: [
       'Java 11, Gradle 7.1.1',
       'SpringBoot 2.5.3',
@@ -380,11 +422,25 @@ export const ProjectData: Project[] = [
     team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, iOS팀 1명'],
     platform: ['iOS'],
     position: 'Backend',
-    role: ['Backend Developer'],
+    roles: ['Backend Developer'],
     color: '#23C38A',
     image: storeasy,
     thumbnail: storeasy,
     icon: i_storeasy,
+    simpleIntroduction: (
+      <div className="space-y-1">
+        <p>대학생을 위한 경험 정리 아카이빙 서비스입니다.</p>
+        <p>
+          경험을 ‘프로젝트 {'>'} 페이지’ 구조로 분류하여 정리할 수 있으며, 다른
+          사람의 경험을 탐색하고 좋아요로 반응할 수 있는 소셜 성격의 아카이빙
+          서비스입니다
+        </p>
+        <p>
+          NestJS 기반의 API 서버를 구축하고, GitHub Actions와 AWS CodeDeploy를
+          연동하여 배포 자동화 환경을 구성했습니다.
+        </p>
+      </div>
+    ),
     introduction: (
       <div className="flex flex-col gap-1">
         <span className="flex">
@@ -588,11 +644,24 @@ export const ProjectData: Project[] = [
     team: ['백엔드팀 2명, Android팀 2명'],
     platform: ['Android'],
     position: 'Backend',
-    role: ['Team Leader', 'Backend Developer'],
+    roles: ['Team Leader', 'Backend Developer'],
     color: '#0DCF82',
     image: dingdong,
     thumbnail: dingdong,
     icon: i_dingdong,
+    simpleIntroduction: (
+      <div className="space-y-1">
+        <p>1인 가구를 위한 지역 기반 식품 및 생필품 나눔 플랫폼입니다.</p>
+        <p>
+          동네 인증, 실시간 채팅을 통한 거래 약속, 나눔 후 평가 시스템 등 신뢰
+          기반의 거래 흐름을 고려한 기능들을 기획하고 직접 구현했습니다.
+        </p>
+        <p>
+          Spring Rest Docs를 활용해 API 문서를 작성하고, AWS EC2를 활용한 서버
+          운영을 담당했습니다.
+        </p>
+      </div>
+    ),
     introduction: (
       <div className="flex flex-col gap-1">
         <span className="flex">
