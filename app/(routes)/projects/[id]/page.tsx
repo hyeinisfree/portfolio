@@ -1,5 +1,24 @@
+"use client";
 import { ProjectData } from "@/data/content";
 import Link from "next/link";
+import Image from "next/image";
+import React from "react";
+import { useParams } from "next/navigation";
+
+import { buttonVariants } from "@/components/ui/button";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import { FiGithub } from "react-icons/fi";
 import {
   ArrowLeft,
   Calendar,
@@ -11,27 +30,9 @@ import {
   Leaf,
   SquareArrowOutUpRight,
 } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
-import Image from "next/image";
-import React from "react";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { FiGithub } from "react-icons/fi";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
 
-export default function ProjectDetailPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+export default function ProjectDetailPage() {
+  const params = useParams<{ id: string }>();
   const project = ProjectData.find((p) => p.id === parseInt(params.id));
 
   if (!project) {
