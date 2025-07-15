@@ -1,30 +1,30 @@
-import { Project } from '@/data/types/content';
+import { Project } from "@/data/types/content";
 
-import matdongsan from '@/public/images/project/thumbnail/matdongsan.webp';
-import i_matdongsan from '@/public/images/project/icon/matdongsan.svg';
-import hyeinkim from '@/public/images/project/thumbnail/hyeinkim.webp';
-import i_hyeinkim from '@/public/images/project/icon/hyeinkim.svg';
-import sswu from '@/public/images/project/sswu.webp';
-import s_sswu from '@/public/images/project/thumbnail/sswu.jpg';
-import i_sswu from '@/public/images/project/icon/sswu.svg';
-import storeasy from '@/public/images/project/thumbnail/storeasy.jpg';
-import i_storeasy from '@/public/images/project/icon/storeasy.svg';
-import dingdong from '@/public/images/project/thumbnail/dingdong.jpg';
-import i_dingdong from '@/public/images/project/icon/dingdong.svg';
+import matdongsan from "@/public/images/project/thumbnail/matdongsan.webp";
+import i_matdongsan from "@/public/images/project/icon/matdongsan.svg";
+import hyeinkim from "@/public/images/project/thumbnail/hyeinkim.webp";
+import i_hyeinkim from "@/public/images/project/icon/hyeinkim.svg";
+import sswu from "@/public/images/project/sswu.webp";
+import s_sswu from "@/public/images/project/thumbnail/sswu.jpg";
+import i_sswu from "@/public/images/project/icon/sswu.svg";
+import storeasy from "@/public/images/project/thumbnail/storeasy.jpg";
+import i_storeasy from "@/public/images/project/icon/storeasy.svg";
+import dingdong from "@/public/images/project/thumbnail/dingdong.jpg";
+import i_dingdong from "@/public/images/project/icon/dingdong.svg";
 
 export const ProjectData: Project[] = [
   {
     id: 1,
-    title: '맛동산',
-    description: '제철 음식 아카이빙/커뮤니티 서비스',
-    startDate: '2025/04',
-    endDate: 'ing',
+    title: "맛동산",
+    description: "제철 음식 아카이빙/커뮤니티 서비스",
+    startDate: "2025/04",
+    endDate: "ing",
     year: [2025],
-    team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명'],
-    platform: ['Web', 'iOS'],
-    position: 'Backend',
-    roles: ['Backend Developer'],
-    color: '#FBE56A',
+    team: ["기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명"],
+    platform: ["Web", "iOS"],
+    position: "Backend",
+    roles: ["Backend Developer"],
+    color: "#FBE56A",
     image: matdongsan,
     thumbnail: matdongsan,
     icon: i_matdongsan,
@@ -45,77 +45,199 @@ export const ProjectData: Project[] = [
       </div>
     ),
     introduction: (
-      <div>
-        제철 음식을 공유하고 기록할 수 있는 아카이빙/커뮤니티 서비스입니다.
+      <div className="flex flex-col gap-1">
+        <span className="flex">
+          <p className="bg-[#FBE56A]/13 px-0.5 rounded-xs mx-0.5">
+            제철 음식을 공유하고 기록할 수 있는 아카이빙/커뮤니티 서비스
+          </p>
+          <p>입니다.</p>
+        </span>
+        <p>위 서비스에서 제공하는 주요 기능은 아래와 같습니다.</p>
+        <ol className="list-decimal px-4 space-y-1">
+          <li>제철 음식 투표 기능</li>
+          <li>제철 음식 기록 기능</li>
+          <li>제철 음식 검색 기능</li>
+          <li>제철 음식 시세 공유 기능</li>
+        </ol>
       </div>
     ),
     techStack: [
-      'Java',
-      'SpringBoot',
-      'MySQL',
-      'Flyway',
-      'Docker',
-      'GitHub Actions',
-      'Terraform',
-      'AWS EC2/RDS/S3/ECR',
+      "Java",
+      "SpringBoot",
+      "MySQL",
+      "Flyway",
+      "Docker",
+      "GitHub Actions",
+      "Terraform",
+      "AWS EC2/RDS/S3/ECR",
     ],
     detailTechStack: [
-      'Java',
-      'SpringBoot',
-      'MySQL',
-      'Flyway',
-      'Docker',
-      'GitHub Actions',
-      'Terraform',
-      'AWS EC2/RDS/S3/RDS',
+      "Java 21",
+      "SpringBoot 3.4.3",
+      "SpringDataJPA",
+      "MySQL",
+      "OpenFeign",
+      "Docker, Docker Hub",
+      "AWS EC2, RDS, S3, Route53, ECR, SES",
+      "Terraform",
+      "GitHub Actions",
     ],
     developmentExperience: [
       {
-        title: '개발 경험 1',
-        content: `첫 번째 개발 경험 내용입니다.
-줄바꿈이 가능합니다.`,
+        title: "Spring Boot 3을 이용한 REST API 서버 구축",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                Spring Boot 3 기반의 REST API 서버를 구축하였고, 엔티티 설계부터
+                컨트롤러, 서비스, 레포지토리 계층으로 구성된 계층형 아키텍처를
+                직접 구현하였습니다.
+              </li>
+              <li>
+                Spring Data JPA를 사용해 도메인 중심의 데이터 모델링을 수행하고,
+                복잡한 쿼리는 @Query, QueryDSL을 활용해 구현하였습니다.
+              </li>
+              <li>
+                API 명세 관리를 위해 Swagger를 적용하였고, 각 API에 대해
+                요청/응답 예시 및 설명을 문서화하였습니다.
+              </li>
+              <li>
+                Spring Security를 도입하여 JWT 기반 인증/인가 기능을 구현했으며,
+                사용자 인증 흐름(로그인, 토큰 재발급, 접근 제어 등)을 직접
+                설계하였습니다.
+              </li>
+              <li>
+                전역 예외 처리를 위한 Exception Handler, 표준 응답 포맷 통일을
+                위한 공통 Response DTO 등을 적용하여 유지보수가 용이한 구조를
+                만들었습니다.
+              </li>
+            </ul>
+          </div>
+        ),
       },
       {
-        title: '개발 경험 2',
-        content: `두 번째 개발 경험 내용입니다.`,
+        title: "다양한 AWS 서비스 사용",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                EC2 인스턴스를 활용해 애플리케이션을 배포하고, ECR을 통해 Docker
+                이미지를 관리하였습니다.
+              </li>
+              <li>
+                RDS(MySQL)를 데이터를 관리하고, S3 Presigned URL을 활용한 이미지
+                업로드 기능을 개발하였습니다.
+              </li>
+              <li>
+                Route 53을 이용해 커스텀 도메인을 연결하고, SES를 통해 인증
+                이메일 발송 기능을 구현하였습니다.
+              </li>
+              <li>
+                AWS 서비스 간 IAM Role 및 정책 설정을 통해 보안성과 접근 제어를
+                고려한 구성을 설계하였습니다.
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "Terraform 기반 인프라 구성",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                VPC, EC2, RDS, S3, ECR, IAM, Route53 등의 AWS 리소스를 코드로
+                정의하고 자동화하였습니다.
+              </li>
+              <li>
+                Public/Private 서브넷, 보안 그룹, IAM Role 등 인프라 구조를 직접
+                설계하며 보안과 확장성을 함께 고려했습니다.
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "GitHub Actions, Docker 기반 CI/CD 구축",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                GitHub Actions를 사용해 코드 push 시 자동으로 Docker 이미지를
+                빌드하고, ECR에 업로드 후 EC2에서 pull & 실행되도록 배포
+                자동화를 구성하였습니다.
+              </li>
+              <li>
+                Flyway 마이그레이션도 별도 workflow로 분리하여 관리하며, 배포
+                과정에서 DB 버전 관리도 함께 수행되도록 구성했습니다.
+              </li>
+              <li>
+                CI/CD 전 과정에 Discord 알림을 연동하여 배포 상태를 실시간으로
+                확인할 수 있게 하였습니다.
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "Flyway 마이그레이션 적용",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                Flyway를 사용해 DDL 및 DML을 버전 관리하며 안정적인 DB
+                마이그레이션을 수행하였습니다.
+              </li>
+              <li>
+                GitHub Actions를 통해 마이그레이션 워크플로우를 구성하여, 개발
+                및 운영 환경에 일관된 마이그레이션을 수행하였습니다.
+              </li>
+            </ul>
+          </div>
+        ),
       },
     ],
     growExperience: [
       {
-        title: '개발 경험 1',
-        content: `첫 번째 개발 경험 내용입니다.
-줄바꿈이 가능합니다.`,
-      },
-      {
-        title: '개발 경험 2',
-        content: `두 번째 개발 경험 내용입니다.`,
+        title: "1인 백엔드 개발자로서의 다양한 문제 해결",
+        content: (
+          <div className="px-1">
+            <p>
+              모든 백엔드 개발과 인프라 설계를 혼자 주도하면서 예상치 못한
+              문제들을 스스로 해결해나가며 성장할 수 있었습니다.
+            </p>
+            <br />
+            <p>
+              설계부터 개발, 배포까지 전 과정을 스스로 감당하면서 시스템 전체를
+              바라보는 시야를 기를 수 있었습니다.
+            </p>
+          </div>
+        ),
       },
     ],
     links: [
       {
-        type: 'github',
-        url: 'https://github.com/kira-matdongsan/Matdongsan-BE',
+        type: "github",
+        url: "https://github.com/kira-matdongsan/Matdongsan-BE",
       },
     ],
   },
   {
     id: 2,
-    title: 'Hyein Kim',
-    description: '개인 포트폴리오 사이트',
-    startDate: '2025/03',
-    endDate: '2025/07',
+    title: "Hyein Kim",
+    description: "개인 포트폴리오 사이트",
+    startDate: "2025/03",
+    endDate: "2025/07",
     year: [2025],
-    team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명'],
-    platform: ['Web'],
-    position: 'Frontend',
-    roles: ['Frontend Developer'],
-    color: '#798088',
+    platform: ["Web"],
+    position: "Frontend",
+    roles: ["Frontend Developer"],
+    color: "#798088",
     image: hyeinkim,
     thumbnail: hyeinkim,
     icon: i_hyeinkim,
     simpleIntroduction: (
       <div className="space-y-1">
-        <p>부드러운 인터랙션을 중심으로 설계한 개인 포트폴리오 사이트입니다.</p>
         <p>
           Next.js App Router 기반의 구조로 구성하고, Framer Motion과 GSAP의
           ScrollTrigger 기능을 활용해 섹션별 인터랙션과 애니메이션 효과를
@@ -125,63 +247,165 @@ export const ProjectData: Project[] = [
         </p>
       </div>
     ),
-    introduction: <div></div>,
+    introduction: (
+      <div className="flex flex-col gap-1">
+        <span className="flex">
+          <p>부드러운 인터랙션을 중심으로 설계한</p>
+          <p className="bg-[#798088]/13 px-0.5 rounded-xs mx-0.5">
+            개인 포트폴리오 사이트
+          </p>
+          <p>입니다.</p>
+        </span>
+        <p>위 사이트의 주요 페이지는 아래와 같습니다.</p>
+        <ol className="list-decimal px-4 space-y-1">
+          <li>개인 소개를 담은 About 페이지</li>
+          <li>프로젝트 목록 페이지</li>
+          <li>프로젝트 상세 페이지</li>
+        </ol>
+      </div>
+    ),
     techStack: [
-      'TypeScript',
-      'Next.js',
-      'tailwindcss',
-      'Framer Motion',
-      'GSAP',
-      'Vercel',
+      "TypeScript",
+      "Next.js",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
     ],
     detailTechStack: [
-      'Java',
-      'SpringBoot',
-      'MySQL',
-      'Flyway',
-      'Docker',
-      'GitHub Actions',
-      'Terraform',
-      'AWS EC2/RDS/S3/RDS',
+      "TypeScript",
+      "Next.js 15",
+      "Tailwind CSS",
+      "Framer Motion",
+      "GSAP",
+      "Vercel",
     ],
     developmentExperience: [
       {
-        title: '개발 경험 1',
-        content: `첫 번째 개발 경험 내용입니다.
-줄바꿈이 가능합니다.`,
+        title: "Next.js 기반 정적 웹사이트 개발",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                Next.js 15의 App Router 구조를 기반으로 정적 웹사이트를
+                개발하였고, 라우팅과 레이아웃 분리, 메타데이터 설정 등을 직접
+                구성하였습니다.
+              </li>
+              <li>
+                Project 페이지에 프로젝트 필터 기능을 구현하여 사이드 프로젝트를
+                쉽게 탐색할 수 있도록 구성하였습니다.
+              </li>
+              <li>
+                프로젝트 상세 페이지에서는 프로젝트별 소개, 기술 스택, 개발 내용
+                등을 구조적으로 확인할 수 있도록 구현했습니다.
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "다양한 라이브러리를 활용한 동적 UI 구현",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                About 페이지에서는 Framer Motion과 GSAP의 ScrollTrigger를 활용해
+                각 섹션에 동적인 인터랙션과 애니메이션을 부여하였습니다.
+              </li>
+              <li>
+                Lenis 기반의 스무스 스크롤, 섹션 고정 및 수평 이동 등의 기능을
+                도입해 부드럽고 몰입감 있는 사용자 경험을 설계하였습니다.
+              </li>
+              <li>
+                UI 구성에는 shadcn/ui, lucide-react 등의 라이브러리를 도입하여
+                빠르게 구성하고 통일된 디자인을 유지할 수 있었습니다.
+              </li>
+            </ul>
+          </div>
+        ),
+      },
+      {
+        title: "재사용 가능한 데이터 구조 설계",
+        content: (
+          <div>
+            <ul className="list-disc pl-4 space-y-1">
+              <li>
+                포트폴리오 전반에서 사용하는 데이터(프로젝트, 스킬 등)를 별도
+                객체로 분리하여 구성하고, 이를 기반으로 UI를 동적으로 생성하도록
+                구현하였습니다.
+              </li>
+              <li>
+                데이터 변경 시 코드 수정 없이 일괄적으로 반영되도록 구조화하여
+                유지 보수성과 확장성을 높였습니다.
+              </li>
+            </ul>
+          </div>
+        ),
       },
     ],
     growExperience: [
       {
-        title: '개발 경험 1',
-        content: `첫 번째 개발 경험 내용입니다.
-줄바꿈이 가능합니다.`,
+        title: "프론트엔드 학습과 경험의 확장",
+        content: (
+          <div className="px-1">
+            <p>
+              기존에 백엔드 위주로 개발을 진행해왔지만, 이번 포트폴리오 사이트
+              프로젝트를 통해 Next.js와 React를 본격적으로 학습하며 프론트엔드의
+              전반적인 구조와 흐름을 이해할 수 있었습니다.
+            </p>
+            <br />
+            <p>
+              정적 사이트 개발이라는 명확한 목표를 가지고 SSR, CSR의 차이,
+              라우팅 방식, 상태 관리, 컴포넌트 분리 등 다양한 개념을 직접
+              구현하며 익혔습니다.
+            </p>
+          </div>
+        ),
       },
       {
-        title: '개발 경험 2',
-        content: `두 번째 개발 경험 내용입니다.`,
+        title: "사용자 경험 중심의 설계와 구현",
+        content: (
+          <div className="px-1">
+            <p>
+              단순히 정보를 나열하는 사이트가 아닌, 사용자에게 흥미롭고 직관적인
+              경험을 제공하는 것을 목표로 UI/UX를 설계했습니다.
+            </p>
+            <br />
+            <p>
+              Framer Motion, GSAP, Lenis 등 다양한 애니메이션 및 인터랙션
+              라이브러리를 도입하여 부드럽고 매끄러운 동작을 구현했으며,
+              Tailwind CSS를 기반으로 반응형 레이아웃를 적용해 다양한 환경에서의
+              사용성을 고려했습니다.
+            </p>
+            <br />
+            <p>
+              특히 About 섹션에서는 스크롤 위치에 따라 변화하는 시각적 요소를
+              통해 자연스러운 흐름을 연출하고, 사용자의 집중도를 높이기 위해
+              디테일한 UI 연출을 고민했습니다.
+            </p>
+          </div>
+        ),
       },
     ],
     links: [
-      { type: 'github', url: 'https://github.com/hyeinisfree/portfolio' },
-      { type: 'website', url: 'https://hyeinisfree.me' },
+      { type: "github", url: "https://github.com/hyeinisfree/portfolio" },
+      { type: "website", url: "https://hyeinisfree.me" },
     ],
   },
   {
     id: 3,
-    title: '수정광산',
-    description: '성신여자대학교 커뮤니티 서비스',
-    startDate: '2021/05',
-    endDate: '2022/09',
+    title: "수정광산",
+    description: "성신여자대학교 커뮤니티 서비스",
+    startDate: "2021/05",
+    endDate: "2022/09",
     year: [2022],
     image: sswu,
     thumbnail: s_sswu,
     icon: i_sswu,
-    position: 'Backend',
-    roles: ['Backend Team Leader', 'Backend Developer'],
-    platform: ['iOS', 'Android'],
-    color: '#A055FE',
-    team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명'],
+    position: "Backend",
+    roles: ["Backend Team Leader", "Backend Developer"],
+    platform: ["iOS", "Android"],
+    color: "#A055FE",
+    team: ["기획팀 1명, 디자인팀 1명, 백엔드팀 1명, 프론트팀 1명, iOS팀 1명"],
     simpleIntroduction: (
       <div className="space-y-1">
         <p>성신여자대학교 학생들을 위한 커뮤니티 서비스입니다.</p>
@@ -214,26 +438,26 @@ export const ProjectData: Project[] = [
       </div>
     ),
     techStack: [
-      'Java',
-      'SpringBoot',
-      'MySQL',
-      'Docker',
-      'Jenkins',
-      'AWS EC2/RDS/S3',
+      "Java",
+      "SpringBoot",
+      "MySQL",
+      "Docker",
+      "Jenkins",
+      "AWS EC2/RDS/S3",
     ],
     detailTechStack: [
-      'Java 11, Gradle 7.1.1',
-      'SpringBoot 2.5.3',
-      'Spring Rest Docs',
-      'MySQL',
-      'AWS EC2, RDS, S3',
-      'Jenkins',
-      'Docker',
-      'Git, GitHub',
+      "Java 11, Gradle 7.1.1",
+      "SpringBoot 2.5.3",
+      "Spring Rest Docs",
+      "MySQL",
+      "AWS EC2, RDS, S3",
+      "Jenkins",
+      "Docker",
+      "Git, GitHub",
     ],
     developmentExperience: [
       {
-        title: 'DB와 API 설계',
+        title: "DB와 API 설계",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -252,7 +476,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'Jenkins와 Docker를 이용한 CI/CD 구축',
+        title: "Jenkins와 Docker를 이용한 CI/CD 구축",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -275,7 +499,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'Gradle 멀티 모듈 적용',
+        title: "Gradle 멀티 모듈 적용",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -299,7 +523,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'JUnit5를 이용한 단위 테스트 코드 작성',
+        title: "JUnit5를 이용한 단위 테스트 코드 작성",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -321,7 +545,7 @@ export const ProjectData: Project[] = [
     ],
     growExperience: [
       {
-        title: '함께 공부하고 빠르게 성장하기',
+        title: "함께 공부하고 빠르게 성장하기",
         content: (
           <div className="px-1">
             <p>
@@ -346,7 +570,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '생산성 향상을 위한 끊임없는 고민과 노력',
+        title: "생산성 향상을 위한 끊임없는 고민과 노력",
         content: (
           <div className="px-1">
             <p>
@@ -373,7 +597,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '프로젝트에 적극적으로 기여하기',
+        title: "프로젝트에 적극적으로 기여하기",
         content: (
           <div className="px-1">
             <p>
@@ -405,25 +629,25 @@ export const ProjectData: Project[] = [
               이 과정들을 통해 소통의 중요성을 느낄 수 있었고 프로젝트에 대한
               팀원들의 만족도를 높이는 것이 프로젝트 진행에 큰 도움이 된다는
               것을 배울 수 있었습니다. 개발뿐만 아니라 다양한 방법을 통해
-              프로젝트에 기여하는 것에 큰 기쁨을 느낄 수 있었습니다.{' '}
+              프로젝트에 기여하는 것에 큰 기쁨을 느낄 수 있었습니다.{" "}
             </p>
           </div>
         ),
       },
     ],
-    links: [{ type: 'website', url: 'https://litt.ly/crystalmine' }],
+    links: [{ type: "website", url: "https://litt.ly/crystalmine" }],
   },
   {
     id: 4,
-    title: '스토리지',
-    description: '대학생을 위한 경험 정리 아카이빙 서비스',
-    startDate: '2021/11',
+    title: "스토리지",
+    description: "대학생을 위한 경험 정리 아카이빙 서비스",
+    startDate: "2021/11",
     year: [2021],
-    team: ['기획팀 1명, 디자인팀 1명, 백엔드팀 1명, iOS팀 1명'],
-    platform: ['iOS'],
-    position: 'Backend',
-    roles: ['Backend Developer'],
-    color: '#23C38A',
+    team: ["기획팀 1명, 디자인팀 1명, 백엔드팀 1명, iOS팀 1명"],
+    platform: ["iOS"],
+    position: "Backend",
+    roles: ["Backend Developer"],
+    color: "#23C38A",
     image: storeasy,
     thumbnail: storeasy,
     icon: i_storeasy,
@@ -431,7 +655,7 @@ export const ProjectData: Project[] = [
       <div className="space-y-1">
         <p>대학생을 위한 경험 정리 아카이빙 서비스입니다.</p>
         <p>
-          경험을 ‘프로젝트 {'>'} 페이지’ 구조로 분류하여 정리할 수 있으며, 다른
+          경험을 ‘프로젝트 {">"} 페이지’ 구조로 분류하여 정리할 수 있으며, 다른
           사람의 경험을 탐색하고 좋아요로 반응할 수 있는 소셜 성격의 아카이빙
           서비스입니다
         </p>
@@ -458,26 +682,26 @@ export const ProjectData: Project[] = [
       </div>
     ),
     techStack: [
-      'TypeScript',
-      'NestJS',
-      'MySQL',
-      'Swagger',
-      'Docker',
-      'GitHub Actions',
-      'AWS EC2/RDS/S3/CodeDeploy',
+      "TypeScript",
+      "NestJS",
+      "MySQL",
+      "Swagger",
+      "Docker",
+      "GitHub Actions",
+      "AWS EC2/RDS/S3/CodeDeploy",
     ],
     detailTechStack: [
-      'Typescript',
-      'NestJS',
-      'MySQL',
-      'Swagger',
-      'Docker',
-      'GitHub, GitHub Actions',
-      'AWS EC2, S3, RDS, CodeDeploy',
+      "Typescript",
+      "NestJS",
+      "MySQL",
+      "Swagger",
+      "Docker",
+      "GitHub, GitHub Actions",
+      "AWS EC2, S3, RDS, CodeDeploy",
     ],
     developmentExperience: [
       {
-        title: 'DB와 API 설계',
+        title: "DB와 API 설계",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -499,7 +723,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'NestJS를 이용한 RESTful API 구현',
+        title: "NestJS를 이용한 RESTful API 구현",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -511,7 +735,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'JWT를 이용한 인증 및 인가 구현',
+        title: "JWT를 이용한 인증 및 인가 구현",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -524,7 +748,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'Swagger를 이용한 API 문서 작성',
+        title: "Swagger를 이용한 API 문서 작성",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1"></ul>
@@ -533,7 +757,7 @@ export const ProjectData: Project[] = [
       },
       {
         title:
-          'Github Actions와 Docker, AWS의 S3, CodeDeploy를 이용한 CI/CD 구축',
+          "Github Actions와 Docker, AWS의 S3, CodeDeploy를 이용한 CI/CD 구축",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -552,7 +776,7 @@ export const ProjectData: Project[] = [
     ],
     growExperience: [
       {
-        title: '생산성 향상에 대한 고민 with. NestJS, Github Actions',
+        title: "생산성 향상에 대한 고민 with. NestJS, Github Actions",
         content: (
           <div className="px-1">
             <p>
@@ -591,7 +815,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '공식 문서의 중요성',
+        title: "공식 문서의 중요성",
         content: (
           <div className="px-1">
             <p>
@@ -604,7 +828,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '비개발 직군과의 협업',
+        title: "비개발 직군과의 협업",
         content: (
           <div className="px-1">
             <p>
@@ -630,22 +854,22 @@ export const ProjectData: Project[] = [
       },
     ],
     links: [
-      { type: 'github', url: 'https://github.com/Storeasy/Storeasy-server' },
+      { type: "github", url: "https://github.com/Storeasy/Storeasy-server" },
     ],
     award: "2021 원티드 '해,커리어' 예선 진출 (상위 50개팀)",
   },
   {
     id: 5,
-    title: '띵-동',
-    description: '1인 가구를 위한 지역 기반 식품 및 생필품 나눔 플랫폼',
-    startDate: '2021/07',
-    endDate: '2021/11',
+    title: "띵-동",
+    description: "1인 가구를 위한 지역 기반 식품 및 생필품 나눔 플랫폼",
+    startDate: "2021/07",
+    endDate: "2021/11",
     year: [2021],
-    team: ['백엔드팀 2명, Android팀 2명'],
-    platform: ['Android'],
-    position: 'Backend',
-    roles: ['Team Leader', 'Backend Developer'],
-    color: '#0DCF82',
+    team: ["백엔드팀 2명, Android팀 2명"],
+    platform: ["Android"],
+    position: "Backend",
+    roles: ["Team Leader", "Backend Developer"],
+    color: "#0DCF82",
     image: dingdong,
     thumbnail: dingdong,
     icon: i_dingdong,
@@ -680,25 +904,25 @@ export const ProjectData: Project[] = [
       </div>
     ),
     techStack: [
-      'Java',
-      'SpringBoot',
-      'SpringRestDocs',
-      'MySQL',
-      'Redis',
-      'AWS EC2/RDS/S3',
+      "Java",
+      "SpringBoot",
+      "SpringRestDocs",
+      "MySQL",
+      "Redis",
+      "AWS EC2/RDS/S3",
     ],
     detailTechStack: [
-      'Java 11, Gradle 7.1.1',
-      'SpringBoot 2.5.3',
-      'SpringRestDocs',
-      'MySQL',
-      'Redis',
-      'AWS EC2, RDS, S3',
-      'GitHub',
+      "Java 11, Gradle 7.1.1",
+      "SpringBoot 2.5.3",
+      "SpringRestDocs",
+      "MySQL",
+      "Redis",
+      "AWS EC2, RDS, S3",
+      "GitHub",
     ],
     developmentExperience: [
       {
-        title: '기능명세서 작성과 DB, API 설계',
+        title: "기능명세서 작성과 DB, API 설계",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -721,7 +945,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '프로필, 평가 기능을 위한 RESTful API 구현',
+        title: "프로필, 평가 기능을 위한 RESTful API 구현",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -745,7 +969,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: 'Spring Security와 JWT를 이용한 인증 및 인가 구현',
+        title: "Spring Security와 JWT를 이용한 인증 및 인가 구현",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -764,7 +988,7 @@ export const ProjectData: Project[] = [
       },
       {
         title:
-          '@SpringBootTest를 이용한 통합 테스트 및 Spring Rest Docs 문서 작성',
+          "@SpringBootTest를 이용한 통합 테스트 및 Spring Rest Docs 문서 작성",
         content: (
           <div>
             <ul className="list-disc pl-4 space-y-1">
@@ -785,7 +1009,7 @@ export const ProjectData: Project[] = [
     ],
     growExperience: [
       {
-        title: '팀리더를 맡아 기른 리더십과 책임감',
+        title: "팀리더를 맡아 기른 리더십과 책임감",
         content: (
           <div className="px-1">
             <p>
@@ -812,7 +1036,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '오픈소스 라이선스에 대한 이해',
+        title: "오픈소스 라이선스에 대한 이해",
         content: (
           <div className="px-1">
             <p>
@@ -835,7 +1059,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '협업 시 Github 활용',
+        title: "협업 시 Github 활용",
         content: (
           <div className="px-1">
             <p>
@@ -848,7 +1072,7 @@ export const ProjectData: Project[] = [
         ),
       },
       {
-        title: '안드로이드 개발자와의 협업',
+        title: "안드로이드 개발자와의 협업",
         content: (
           <div className="px-1">
             <p>
@@ -863,8 +1087,8 @@ export const ProjectData: Project[] = [
     award: "2021 원티드 '해,커리어' 예선 진출 (상위 50개팀)",
     links: [
       {
-        type: 'github',
-        url: 'https://github.com/Team-Dingdong/dingdong-server',
+        type: "github",
+        url: "https://github.com/Team-Dingdong/dingdong-server",
       },
     ],
   },

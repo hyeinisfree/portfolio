@@ -13,7 +13,7 @@ export interface Project {
   startDate: string;
   endDate?: string;
   year: number[];
-  team: string[];
+  team?: string[];
   platform: string[];
   position: string;
   roles: string[];

@@ -1,5 +1,5 @@
-import { ProjectData } from '@/data/content';
-import Link from 'next/link';
+import { ProjectData } from "@/data/content";
+import Link from "next/link";
 import {
   ArrowLeft,
   Calendar,
@@ -10,22 +10,22 @@ import {
   Terminal,
   Leaf,
   SquareArrowOutUpRight,
-} from 'lucide-react';
-import { buttonVariants } from '@/components/ui/button';
-import Image from 'next/image';
-import React from 'react';
+} from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
+import Image from "next/image";
+import React from "react";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from '@/components/ui/accordion';
-import { FiGithub } from 'react-icons/fi';
+} from "@/components/ui/accordion";
+import { FiGithub } from "react-icons/fi";
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
-} from '@/components/ui/tooltip';
+} from "@/components/ui/tooltip";
 
 export default function ProjectDetailPage({
   params,
@@ -87,9 +87,9 @@ export default function ProjectDetailPage({
           <Link
             href="/projects"
             className={buttonVariants({
-              variant: 'outline',
-              size: 'icon',
-              className: 'size-7 lg:size-8 border-[1.5px]',
+              variant: "outline",
+              size: "icon",
+              className: "size-7 lg:size-8 border-[1.5px]",
             })}
           >
             <ArrowLeft strokeWidth={2} size={20} color="gray" />
@@ -113,12 +113,12 @@ export default function ProjectDetailPage({
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`cursor-pointer hover:shadow-sm ${buttonVariants({
-                    variant: 'outline',
-                    size: 'icon',
-                    className: 'size-7 lg:size-8',
+                    variant: "outline",
+                    size: "icon",
+                    className: "size-7 lg:size-8",
                   })}`}
                 >
-                  {type === 'github' ? (
+                  {type === "github" ? (
                     <FiGithub />
                   ) : (
                     <SquareArrowOutUpRight size={18} />
@@ -126,7 +126,7 @@ export default function ProjectDetailPage({
                 </a>
               </TooltipTrigger>
               <TooltipContent>
-                {type === 'github' ? 'GitHub' : 'Website'}
+                {type === "github" ? "GitHub" : "Website"}
               </TooltipContent>
             </Tooltip>
           ))}
@@ -138,7 +138,7 @@ export default function ProjectDetailPage({
       >
         <InfoBlock Icon={Calendar} title="프로젝트 기간">
           <p className="px-1 font-clash">
-            {project.startDate} {project.endDate ? ' → ' : ''} {project.endDate}
+            {project.startDate} {project.endDate ? " → " : ""} {project.endDate}
           </p>
         </InfoBlock>
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-0">
@@ -149,13 +149,15 @@ export default function ProjectDetailPage({
               ))}
             </ul>
           </InfoBlock>
-          <InfoBlock Icon={UsersRound} title="팀 구성">
-            <ul className="list-disc px-4 space-y-1">
-              {project.team.map((team, index) => (
-                <li key={index}>{team}</li>
-              ))}
-            </ul>
-          </InfoBlock>
+          {project.team && (
+            <InfoBlock Icon={UsersRound} title="팀 구성">
+              <ul className="list-disc px-4 space-y-1">
+                {project.team.map((team, index) => (
+                  <li key={index}>{team}</li>
+                ))}
+              </ul>
+            </InfoBlock>
+          )}
         </div>
         <InfoBlock Icon={Megaphone} title={`${project.title} 소개`}>
           {project.introduction}
