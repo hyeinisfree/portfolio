@@ -1,17 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 
 const Header = () => {
   const pathname = usePathname();
 
   const navItems = [
-    { name: 'ABOUT', path: '/#about-me', type: 'internal' },
-    { name: 'WORK', path: '/works', type: 'internal' },
-    { name: 'PROJECT', path: '/projects', type: 'internal' },
-    { name: 'BLOG', path: 'https://hyeinisfree.tistory.com', type: 'external' },
+    { name: "ABOUT", path: "/#about-me", type: "internal" },
+    // { name: 'WORK', path: '/works', type: 'internal' },
+    { name: "PROJECT", path: "/projects", type: "internal" },
+    { name: "BLOG", path: "https://hyeinisfree.tistory.com", type: "external" },
   ];
 
   return (
@@ -24,7 +24,7 @@ const Header = () => {
           <div className="hidden md:block">
             <nav className="flex space-x-8 text-base">
               {navItems.map((item) =>
-                item.type === 'external' ? (
+                item.type === "external" ? (
                   <a
                     key={item.path}
                     href={item.path}
@@ -39,7 +39,7 @@ const Header = () => {
                     key={item.path}
                     href={item.path}
                     className={`transition-colors hover:text-gray-900 ${
-                      pathname === item.path ? 'text-gray-900' : 'text-gray-500'
+                      pathname === item.path ? "text-gray-900" : "text-gray-500"
                     }`}
                   >
                     {item.name}
